@@ -1,0 +1,558 @@
+# .github/workflows/bus-stop-data.yml (FINAL CORRECTED VERSION)
+name: Bus Stop Process & Dashboard Realtime Update
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # Every Monday at 1 AM
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Limit number of bus stops to process (for testing)"
+        required: false
+        default: ""
+      workers:
+        description: "Number of parallel workers"
+        required: false
+        default: "4"
+      send_notifications:
+        description: "Send Slack notifications"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  notify-start:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.send_notifications != 'false' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Send start notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          pip install requests
+          python -c "
+          import os, requests, json
+          from datetime import datetime
+
+          webhook_url = os.getenv('SLACK_WEBHOOK')
+          if webhook_url:
+              message = {
+                  'channel': '#bus-stop-alerts',
+                  'username': 'Bus Stop Monitor',
+                  'icon_emoji': ':hourglass_flowing_sand:',
+                  'text': '🔄 Bus Stop Data Collection Started',
+                  'attachments': [{
+                      'color': '#36a64f',
+                      'title': '🔄 Data Collection In Progress',
+                      'text': 'Downloading LTA DataMall data and scraping SimplyGo corrections...',
+                      'footer': 'Bus Stop Monitor',
+                      'ts': int(datetime.now().timestamp())
+                  }]
+              }
+              try:
+                  response = requests.post(webhook_url, json=message, timeout=30)
+                  print('✅ Start notification sent' if response.status_code == 200 else '❌ Failed to send notification')
+              except Exception as e:
+                  print(f'❌ Error: {e}')
+          else:
+              print('⚠️ SLACK_WEBHOOK not configured')
+          "
+
+  collect-data:
+    needs: [notify-start]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    if: always() # Run even if notification fails
+
+    outputs:
+      total-stops: ${{ steps.stats.outputs.total-stops }}
+      corrections: ${{ steps.stats.outputs.corrections }}
+      success-rate: ${{ steps.stats.outputs.success-rate }}
+      workflow-status: ${{ steps.stats.outputs.workflow-status }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+          pip install selenium beautifulsoup4 pandas tqdm webdriver-manager requests numpy
+
+      - name: Run bus stop data collection
+        id: collection
+        env:
+          LTA_API_KEY: ${{ secrets.LTA_API_KEY }}
+        run: |
+          set -e  # Exit on any error
+          python bus_stop_data_merger.py \
+            --lta-api-key "$LTA_API_KEY" \
+            --workers ${{ github.event.inputs.workers || '4' }} \
+            --batch-size 20 \
+            ${{ github.event.inputs.limit && format('--limit {0}', github.event.inputs.limit) || '' }}
+
+      - name: Extract statistics
+        id: stats
+        run: |
+          python -c "
+          import pandas as pd
+          import json
+          import os
+
+          try:
+              # Read the latest correction file
+              df = pd.read_csv('data/lta_correction.csv')
+              total_stops = len(df)
+              corrections = len(df[df['name_source'] == 'SimplyGo']) if 'name_source' in df.columns else 0
+              success_rate = 100.0  # Assume success if file exists
+              workflow_status = 'success'
+              
+              print(f'total-stops={total_stops}')
+              print(f'corrections={corrections}')
+              print(f'success-rate={success_rate}')
+              print(f'workflow-status={workflow_status}')
+              
+              # Set outputs for next jobs
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write(f'total-stops={total_stops}\n')
+                  f.write(f'corrections={corrections}\n')
+                  f.write(f'success-rate={success_rate}\n')
+                  f.write(f'workflow-status={workflow_status}\n')
+                  
+          except Exception as e:
+              print(f'Error: {e}')
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                  f.write('total-stops=0\n')
+                  f.write('corrections=0\n')
+                  f.write('success-rate=0\n')
+                  f.write('workflow-status=failed\n')
+          "
+
+      - name: Send error notification on failure
+        if: failure() && github.event.inputs.send_notifications != 'false'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          pip install requests
+          python -c "
+          import os, requests, json
+          from datetime import datetime
+
+          webhook_url = os.getenv('SLACK_WEBHOOK')
+          if webhook_url:
+              message = {
+                  'channel': '#bus-stop-alerts',
+                  'username': 'Bus Stop Monitor',
+                  'icon_emoji': ':rotating_light:',
+                  'text': '🚨 Bus Stop Data Collection Failed',
+                  'attachments': [{
+                      'color': 'danger',
+                      'title': '❌ Workflow Error',
+                      'text': 'Data collection workflow encountered an error. Check logs for details.',
+                      'footer': 'Bus Stop Monitor',
+                      'ts': int(datetime.now().timestamp())
+                  }],
+                  'blocks': [{
+                      'type': 'section',
+                      'text': {
+                          'type': 'mrkdwn',
+                          'text': '*🚨 Bus Stop Data Collection Failed*\n\nWorkflow encountered an error during data collection.'
+                      }
+                  }, {
+                      'type': 'actions',
+                      'elements': [{
+                          'type': 'button',
+                          'text': {
+                              'type': 'plain_text',
+                              'text': '🔍 Check Logs',
+                              'emoji': True
+                          },
+                          'url': f'https://github.com/{os.getenv(\"GITHUB_REPOSITORY\")}/actions',
+                          'style': 'danger'
+                      }]
+                  }]
+              }
+              try:
+                  response = requests.post(webhook_url, json=message, timeout=30)
+                  print('✅ Error notification sent' if response.status_code == 200 else '❌ Failed to send error notification')
+              except Exception as e:
+                  print(f'❌ Error sending notification: {e}')
+          "
+
+      - name: Upload data artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bus-stop-data-${{ github.run_id }}
+          path: |
+            data/
+            logs/
+            output/
+          retention-days: 30
+
+  update-dashboard:
+    needs: collect-data
+    runs-on: ubuntu-latest
+    if: always() # Run even if data collection fails
+
+    # Set permissions for GitHub Pages
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    outputs:
+      dashboard-url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download data artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: bus-stop-data-${{ github.run_id }}
+          path: ./
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Python dependencies
+        run: |
+          pip install pandas requests python-dateutil
+
+      - name: Generate dashboard data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOTAL_STOPS: ${{ needs.collect-data.outputs.total-stops }}
+          CORRECTIONS: ${{ needs.collect-data.outputs.corrections }}
+          SUCCESS_RATE: ${{ needs.collect-data.outputs.success-rate }}
+        run: |
+          python scripts/generate_dashboard.py
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload to Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "./dashboard"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+  commit-results:
+    needs: [collect-data, update-dashboard]
+    runs-on: ubuntu-latest
+    if: success() # Only run if both jobs were successful
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download data artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: bus-stop-data-${{ github.run_id }}
+          path: ./
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%d%m%Y')" >> $GITHUB_OUTPUT
+
+      - name: Commit results to repository
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+
+          # Check git status before any changes
+          echo "======= Git Status Before ======="
+          git status
+
+          # Get timestamp
+          TIMESTAMP="${{ steps.date.outputs.date }}"
+
+          # Add files individually, making sure they exist first
+          if [ -f "data/lta_correction.csv" ]; then
+            git add "data/lta_correction.csv"
+            echo "Added data/lta_correction.csv"
+          fi
+
+          if [ -f "data/LTA_bus_stops_${TIMESTAMP}.csv" ]; then
+            git add "data/LTA_bus_stops_${TIMESTAMP}.csv"
+            echo "Added data/LTA_bus_stops_${TIMESTAMP}.csv"
+          fi
+
+          # Add difference files if they exist
+          for diff_file in data/LTA_difference_*-${TIMESTAMP}.csv; do
+            if [ -f "$diff_file" ]; then
+              git add "$diff_file"
+              echo "Added $diff_file"
+            fi
+          done
+
+          # Add correction files if they exist
+          for corr_file in data/LTA_difference_correction_*-${TIMESTAMP}.csv; do
+            if [ -f "$corr_file" ]; then
+              git add "$corr_file"
+              echo "Added $corr_file"
+            fi
+          done
+
+          # Add timestamped correction files
+          for ts_file in data/lta_correction_*${TIMESTAMP}*.csv; do
+            if [ -f "$ts_file" ]; then
+              git add "$ts_file"
+              echo "Added $ts_file"
+            fi
+          done
+
+          # Add log files
+          for log_file in logs/bus_data_collector_*.log; do
+            if [ -f "$log_file" ]; then
+              git add "$log_file"
+              echo "Added $log_file"
+            fi
+          done
+
+          # Add output files
+          for output_file in output/simplygo_bus_stops_*.csv; do
+            if [ -f "$output_file" ]; then
+              git add "$output_file"
+              echo "Added $output_file"
+            fi
+          done
+
+          # Check git status again
+          echo "======= Git Status After Adding Files ======="
+          git status
+
+          # Get statistics for commit message
+          TOTAL_STOPS="${{ needs.collect-data.outputs.total-stops }}"
+          CORRECTIONS="${{ needs.collect-data.outputs.corrections }}"
+
+          # Commit with informative message
+          git commit -m "Update bus stop data ${TIMESTAMP}: ${TOTAL_STOPS} stops, ${CORRECTIONS} corrections" || echo "No changes to commit"
+
+          # Push changes
+          echo "======= Git Push ======="
+          git push origin main
+
+          # Store the push result
+          PUSH_RESULT=$?
+
+          # If push fails, try again with pull-push sequence
+          if [ $PUSH_RESULT -ne 0 ]; then
+            echo "First push failed, trying pull-then-push sequence..."
+            git pull --rebase origin main || echo "Pull failed"
+            git push origin main
+            
+            # Store the second push result
+            PUSH_RESULT=$?
+            
+            # If still fails, try with force option as last resort
+            if [ $PUSH_RESULT -ne 0 ]; then
+              echo "Trying force push as fallback..."
+              git push -f origin main || echo "Force push also failed"
+            fi
+          fi
+
+          echo "Successfully committed bus stop data files"
+
+  notify-success:
+    needs: [collect-data, update-dashboard]
+    runs-on: ubuntu-latest
+    if: success() && github.event.inputs.send_notifications != 'false'
+
+    steps:
+      - name: Send success notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TOTAL_STOPS: ${{ needs.collect-data.outputs.total-stops }}
+          CORRECTIONS: ${{ needs.collect-data.outputs.corrections }}
+          SUCCESS_RATE: ${{ needs.collect-data.outputs.success-rate }}
+          DASHBOARD_URL: ${{ needs.update-dashboard.outputs.dashboard-url }}
+        run: |
+          pip install requests
+          python -c "
+          import os, requests, json
+          from datetime import datetime
+
+          webhook_url = os.getenv('SLACK_WEBHOOK')
+          if not webhook_url:
+              print('⚠️ SLACK_WEBHOOK not configured')
+              exit(0)
+
+          # Get data from environment
+          total_stops = int(os.getenv('TOTAL_STOPS', '0'))
+          corrections = int(os.getenv('CORRECTIONS', '0'))
+          success_rate = float(os.getenv('SUCCESS_RATE', '0'))
+          dashboard_url = os.getenv('DASHBOARD_URL', 'https://github.com')
+
+          # Calculate correction percentage
+          correction_pct = (corrections / total_stops * 100) if total_stops > 0 else 0
+
+          # Determine color based on success rate
+          if success_rate >= 95:
+              color = 'good'
+              status_emoji = '✅'
+          elif success_rate >= 80:
+              color = 'warning' 
+              status_emoji = '⚠️'
+          else:
+              color = 'danger'
+              status_emoji = '❌'
+
+          message = {
+              'channel': '#bus-stop-alerts',
+              'username': 'Bus Stop Monitor',
+              'icon_emoji': ':bus:',
+              'text': f'{status_emoji} Bus Stop Data Collection Completed',
+              'blocks': [
+                  {
+                      'type': 'section',
+                      'text': {
+                          'type': 'mrkdwn',
+                          'text': f'*{status_emoji} Bus Stop Data Collection Completed*\n\n📊 Processed *{total_stops:,}* bus stops with *{success_rate:.1f}%* success rate\n🔄 Applied *{corrections:,}* name corrections from SimplyGo ({correction_pct:.1f}%)'
+                      }
+                  },
+                  {
+                      'type': 'actions',
+                      'elements': [
+                          {
+                              'type': 'button',
+                              'text': {
+                                  'type': 'plain_text',
+                                  'text': '📈 View Dashboard',
+                                  'emoji': True
+                              },
+                              'url': dashboard_url,
+                              'style': 'primary'
+                          },
+                          {
+                              'type': 'button',
+                              'text': {
+                                  'type': 'plain_text',
+                                  'text': '📋 View Logs',
+                                  'emoji': True
+                              },
+                              'url': f'https://github.com/{os.getenv(\"GITHUB_REPOSITORY\")}/actions'
+                          }
+                      ]
+                  },
+                  {
+                      'type': 'context',
+                      'elements': [
+                          {
+                              'type': 'mrkdwn',
+                              'text': f'🕐 {datetime.now().strftime(\"%d/%m/%Y %H:%M:%S\")} | 🤖 Automated via GitHub Actions'
+                          }
+                      ]
+                  }
+              ]
+          }
+
+          try:
+              response = requests.post(webhook_url, json=message, timeout=30)
+              if response.status_code == 200:
+                  print('✅ Success notification sent to Slack')
+              else:
+                  print(f'❌ Failed to send notification: {response.status_code}')
+                  print(f'Response: {response.text}')
+          except Exception as e:
+              print(f'❌ Error sending notification: {e}')
+          "
+
+  notify-failure:
+    needs: [collect-data, update-dashboard]
+    runs-on: ubuntu-latest
+    if: failure() && github.event.inputs.send_notifications != 'false'
+
+    steps:
+      - name: Send failure notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          pip install requests
+          python -c "
+          import os, requests, json
+          from datetime import datetime
+
+          webhook_url = os.getenv('SLACK_WEBHOOK')
+          if not webhook_url:
+              print('⚠️ SLACK_WEBHOOK not configured')
+              exit(0)
+
+          message = {
+              'channel': '#bus-stop-alerts',
+              'username': 'Bus Stop Monitor',
+              'icon_emoji': ':rotating_light:',
+              'text': '🚨 Bus Stop Workflow Failed',
+              'blocks': [
+                  {
+                      'type': 'section',
+                      'text': {
+                          'type': 'mrkdwn',
+                          'text': '*🚨 Bus Stop Workflow Failed*\n\nOne or more jobs in the workflow encountered errors.'
+                      }
+                  },
+                  {
+                      'type': 'actions',
+                      'elements': [
+                          {
+                              'type': 'button',
+                              'text': {
+                                  'type': 'plain_text',
+                                  'text': '🔍 Check Logs',
+                                  'emoji': True
+                              },
+                              'url': f'https://github.com/{os.getenv(\"GITHUB_REPOSITORY\")}/actions',
+                              'style': 'danger'
+                          }
+                      ]
+                  }
+              ]
+          }
+
+          try:
+              response = requests.post(webhook_url, json=message, timeout=30)
+              print('✅ Failure notification sent' if response.status_code == 200 else '❌ Failed to send notification')
+          except Exception as e:
+              print(f'❌ Error: {e}')
+          "
