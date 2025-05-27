@@ -9,7 +9,7 @@ FIXES APPLIED:
 2. Windows-compatible logging (no Unicode issues)
 3. Robust error handling
 
-Author: Claude (Final Fixed Version)
+Author: Dhany Yudi Prasetyo
 Date: May 2025
 """
 

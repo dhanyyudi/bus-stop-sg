@@ -19,7 +19,7 @@ Key Features:
 - Efficient scraping (only changed bus stops)
 - Detailed logging and statistics
 
-Author: Claude (Complete Version)
+Author: Dhany Yudi Prasetyo
 Date: May 2025
 """
 

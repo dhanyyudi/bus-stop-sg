@@ -11,7 +11,7 @@ This script performs a 4-step process:
 3. Download data from SimplyGo only for new/modified bus stops
 4. Merge data from both sources to create a corrected dataset
 
-Author: Claude
+Author: Dhany Yudi Prasetyo
 Date: May 2025
 """
 
