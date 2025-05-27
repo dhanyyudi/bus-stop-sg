@@ -1,0 +1,928 @@
+name: Bus Stop Bi-weekly Monitor with Dynamic Downloads
+
+on:
+  schedule:
+    # Every 2 weeks on Monday at 00:00 UTC (08:00 Singapore Time)
+    # This runs on odd weeks of the year (weeks 1, 3, 5, 7, 9, 11, etc.)
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Test limit (optional)"
+        required: false
+        default: ""
+      workers:
+        description: "Number of workers"
+        required: false
+        default: "4"
+      log_level:
+        description: "Log level (INFO, DEBUG)"
+        required: false
+        default: "INFO"
+      force_run:
+        description: "Force run regardless of schedule"
+        required: false
+        default: "false"
+
+jobs:
+  collect-and-notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write
+    steps:
+      - name: Check if should run (bi-weekly schedule)
+        id: schedule_check
+        run: |
+          echo "🗓️ Checking bi-weekly schedule..."
+
+          # Get current week number and year
+          CURRENT_WEEK=$(date +%V)
+          CURRENT_YEAR=$(date +%Y)
+          FORCE_RUN="${{ github.event.inputs.force_run || 'false' }}"
+
+          echo "📅 Current week: $CURRENT_WEEK of $CURRENT_YEAR"
+          echo "🔧 Force run: $FORCE_RUN"
+
+          # Check if this is an even or odd week
+          WEEK_MOD=$((CURRENT_WEEK % 2))
+
+          # Run on even weeks (2, 4, 6, 8, 10, 12, etc.) for bi-weekly schedule
+          # You can change this to odd weeks by changing the condition to == 1
+          SHOULD_RUN="false"
+
+          if [ "$WEEK_MOD" -eq 0 ]; then
+            SHOULD_RUN="true"
+            echo "✅ This is week $CURRENT_WEEK (even week) - scheduled to run"
+          else
+            echo "⏭️ This is week $CURRENT_WEEK (odd week) - skipping (bi-weekly schedule)"
+          fi
+
+          # Override if force run or manual dispatch
+          if [ "$FORCE_RUN" = "true" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SHOULD_RUN="true"
+            echo "🔧 Override: Force run or manual dispatch - will execute"
+          fi
+
+          echo "🎯 Final decision: SHOULD_RUN=$SHOULD_RUN"
+          echo "should_run=$SHOULD_RUN" >> $GITHUB_OUTPUT
+
+          # Calculate next run date
+          if [ "$SHOULD_RUN" = "false" ]; then
+            NEXT_WEEK=$((CURRENT_WEEK + 1))
+            if [ "$NEXT_WEEK" -gt 52 ]; then
+              NEXT_WEEK=2
+              NEXT_YEAR=$((CURRENT_YEAR + 1))
+            else
+              NEXT_YEAR=$CURRENT_YEAR
+            fi
+            echo "📅 Next scheduled run: Week $NEXT_WEEK of $NEXT_YEAR (Monday 08:00 SGT)"
+          fi
+
+      - name: Send skip notification
+        if: steps.schedule_check.outputs.should_run == 'false'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            CURRENT_WEEK=$(date +%V)
+            NEXT_WEEK=$((CURRENT_WEEK + 1))
+            
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{
+                \"text\":\"⏭️ Bus Stop Collection Skipped\",
+                \"attachments\":[{
+                  \"color\":\"#36a64f\",
+                  \"title\":\"📅 Bi-weekly Schedule Check\",
+                  \"text\":\"Current week: $CURRENT_WEEK (odd week)\\nNext run: Week $NEXT_WEEK (Monday 08:00 SGT)\\n\\nBi-weekly schedule: Running every 2 weeks on even weeks\",
+                  \"footer\":\"Bus Stop SG Collection | Bi-weekly schedule\"
+                }]
+              }" \
+              "$SLACK_WEBHOOK"
+          fi
+
+          echo "⏭️ Workflow skipped due to bi-weekly schedule"
+          exit 0
+
+      - name: Send start notification
+        if: steps.schedule_check.outputs.should_run == 'true'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          CURRENT_WEEK=$(date +%V)
+
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{
+                \"text\":\"🔄 Bus Stop Collection Started\",
+                \"attachments\":[{
+                  \"color\":\"#36a64f\",
+                  \"title\":\"📅 Bi-weekly Collection - Week $CURRENT_WEEK\",
+                  \"text\":\"Enhanced version with dynamic downloads\\nScheduled: Every 2 weeks on Monday 08:00 SGT\",
+                  \"footer\":\"Bus Stop SG Collection | Starting data collection...\"
+                }]
+              }" \
+              "$SLACK_WEBHOOK"
+          else
+            echo "WARNING: SLACK_WEBHOOK not configured"
+          fi
+
+      - name: Checkout
+        if: steps.schedule_check.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        if: steps.schedule_check.outputs.should_run == 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver jq
+          pip install selenium beautifulsoup4 pandas tqdm webdriver-manager requests numpy
+
+      - name: Set environment encoding
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "PYTHONIOENCODING=utf-8" >> $GITHUB_ENV
+          echo "LC_ALL=C.UTF-8" >> $GITHUB_ENV
+          echo "LANG=C.UTF-8" >> $GITHUB_ENV
+
+      - name: Run enhanced data collection
+        if: steps.schedule_check.outputs.should_run == 'true'
+        env:
+          LTA_API_KEY: ${{ secrets.LTA_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          echo "Starting enhanced bus stop data collection..."
+          echo "Using script: bus_stop_merger_final.py"
+
+          python bus_stop_merger_final.py \
+            --lta-api-key "$LTA_API_KEY" \
+            --workers ${{ github.event.inputs.workers || '4' }} \
+            --batch-size 20 \
+            --log-level ${{ github.event.inputs.log_level || 'INFO' }} \
+            ${{ github.event.inputs.limit && format('--limit {0}', github.event.inputs.limit) || '' }}
+
+          echo "Enhanced data collection completed!"
+
+      - name: Extract enhanced statistics with date comparison
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "Extracting enhanced statistics with date comparison..."
+          python3 << 'EOF'
+          import pandas as pd
+          import os
+          import glob
+          import json
+          import datetime
+          import re
+
+          # Initialize default values
+          stats = {
+              'TOTAL_STOPS': 0,
+              'CORRECTIONS': 0,
+              'SUCCESS_RATE': 100.0,
+              'CORRECTION_PCT': 0.0,
+              'CHANGES_DETECTED': 0,
+              'NEW_STOPS': 0,
+              'NAME_CHANGES': 0,
+              'REMOVED_STOPS': 0,
+              'EFFICIENCY': 100.0,
+              'PREVIOUS_DATE': 'Unknown',
+              'CURRENT_DATE': 'Unknown',
+              'NEW_STOPS_DETAILS': '[]'
+          }
+
+          current_date = datetime.datetime.now().strftime("%d%m%Y")
+          stats['CURRENT_DATE'] = datetime.datetime.now().strftime("%d/%m/%Y")
+
+          try:
+              # Load main result file
+              if os.path.exists('data/lta_correction.csv'):
+                  df = pd.read_csv('data/lta_correction.csv')
+                  stats['TOTAL_STOPS'] = len(df)
+                  
+                  if 'name_source' in df.columns:
+                      stats['CORRECTIONS'] = len(df[df['name_source'] == 'SimplyGo'])
+                      stats['CORRECTION_PCT'] = (stats['CORRECTIONS'] / stats['TOTAL_STOPS'] * 100) if stats['TOTAL_STOPS'] > 0 else 0
+                  
+                  print(f"✅ Loaded main results: {stats['TOTAL_STOPS']} stops, {stats['CORRECTIONS']} corrections")
+              
+              # Find previous LTA file to get comparison date
+              lta_files = glob.glob('data/LTA_bus_stops_*.csv')
+              if lta_files:
+                  # Filter out current date file and get the most recent previous file
+                  previous_files = []
+                  for file in lta_files:
+                      filename = os.path.basename(file)
+                      date_match = re.search(r'LTA_bus_stops_(\d{8})\.csv', filename)
+                      if date_match and date_match.group(1) != current_date:
+                          file_date = date_match.group(1)
+                          # Convert DDMMYYYY to datetime for sorting
+                          try:
+                              dt = datetime.datetime.strptime(file_date, "%d%m%Y")
+                              previous_files.append((file, dt, file_date))
+                          except:
+                              pass
+                  
+                  if previous_files:
+                      # Sort by date and get the most recent
+                      previous_files.sort(key=lambda x: x[1], reverse=True)
+                      latest_previous = previous_files[0]
+                      prev_date_str = latest_previous[2]  # DDMMYYYY format
+                      
+                      # Convert to readable format DD/MM/YYYY
+                      try:
+                          dt = datetime.datetime.strptime(prev_date_str, "%d%m%Y")
+                          stats['PREVIOUS_DATE'] = dt.strftime("%d/%m/%Y")
+                      except:
+                          stats['PREVIOUS_DATE'] = prev_date_str
+                      
+                      print(f"📅 Previous data date: {stats['PREVIOUS_DATE']}")
+              
+              # Try to get change statistics and details
+              change_files = glob.glob('data/LTA_changes_*.csv')
+              if change_files:
+                  latest_change_file = sorted(change_files)[-1]
+                  print(f"📊 Loading changes from: {latest_change_file}")
+                  
+                  changes_df = pd.read_csv(latest_change_file)
+                  stats['CHANGES_DETECTED'] = len(changes_df)
+                  
+                  if 'change_type' in changes_df.columns:
+                      new_stops_df = changes_df[changes_df['change_type'] == 'new']
+                      stats['NEW_STOPS'] = len(new_stops_df)
+                      stats['NAME_CHANGES'] = len(changes_df[changes_df['change_type'] == 'name_changed'])
+                      stats['REMOVED_STOPS'] = len(changes_df[changes_df['change_type'] == 'removed'])
+                      
+                      # Get details of new stops for display
+                      if not new_stops_df.empty and len(new_stops_df) <= 10:  # Only if reasonable number
+                          new_stops_details = []
+                          for _, row in new_stops_df.iterrows():
+                              detail = {
+                                  'code': str(row.get('code', '')),
+                                  'name': str(row.get('name', '')),
+                                  'street': str(row.get('street', ''))
+                              }
+                              new_stops_details.append(detail)
+                          
+                          stats['NEW_STOPS_DETAILS'] = json.dumps(new_stops_details)
+                          print(f"📝 New stops details: {len(new_stops_details)} stops captured")
+                  
+                  print(f"📈 Changes: {stats['CHANGES_DETECTED']} total ({stats['NEW_STOPS']} new, {stats['NAME_CHANGES']} renamed, {stats['REMOVED_STOPS']} removed)")
+              
+              # Calculate efficiency
+              if stats['CHANGES_DETECTED'] > 0 and stats['TOTAL_STOPS'] > 0:
+                  stats['EFFICIENCY'] = ((stats['TOTAL_STOPS'] - stats['CHANGES_DETECTED']) / stats['TOTAL_STOPS'] * 100)
+              
+              print("📊 Final Enhanced Statistics:")
+              for key, value in stats.items():
+                  if key != 'NEW_STOPS_DETAILS':  # Skip long JSON in logs
+                      print(f"   {key}: {value}")
+              
+          except Exception as e:
+              print(f"❌ Error extracting enhanced stats: {e}")
+              # Keep default values
+
+          # Write to environment file
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              for key, value in stats.items():
+                  f.write(f"{key}={value}\n")
+
+          print("✅ Enhanced statistics extraction completed")
+          EOF
+
+      - name: Create user-friendly summary files
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "Creating user-friendly summary files for download..."
+          python3 << 'EOF'
+          import pandas as pd
+          import os
+          import glob
+          import datetime
+          import json
+
+          try:
+              current_date = datetime.datetime.now().strftime("%d%m%Y")
+              readable_date = datetime.datetime.now().strftime("%d_%m_%Y")
+              
+              # Find latest changes file
+              change_files = glob.glob('data/LTA_changes_*.csv')
+              if not change_files:
+                  print("❌ No changes file found")
+                  exit(0)
+              
+              latest_change_file = sorted(change_files)[-1]
+              print(f"📊 Processing changes from: {latest_change_file}")
+              
+              # Load changes data
+              changes_df = pd.read_csv(latest_change_file)
+              
+              if changes_df.empty:
+                  print("ℹ️ No changes detected, skipping summary creation")
+                  exit(0)
+              
+              # Create summary by change type
+              summary_stats = {}
+              if 'change_type' in changes_df.columns:
+                  summary_stats = changes_df['change_type'].value_counts().to_dict()
+              
+              # ============ 1. CREATE NEW STOPS ONLY FILE ============
+              if 'change_type' in changes_df.columns:
+                  new_stops = changes_df[changes_df['change_type'] == 'new'].copy()
+                  
+                  if not new_stops.empty:
+                      # Select and rename columns for better readability
+                      if 'corrected_name' in new_stops.columns:
+                          new_stops_clean = new_stops[['code', 'corrected_name', 'street', 'lat', 'lon']].copy()
+                          new_stops_clean = new_stops_clean.rename(columns={
+                              'code': 'Bus Stop Code',
+                              'corrected_name': 'Bus Stop Name',
+                              'street': 'Street/Road',
+                              'lat': 'Latitude',
+                              'lon': 'Longitude'
+                          })
+                      else:
+                          new_stops_clean = new_stops[['code', 'name', 'street', 'lat', 'lon']].copy()
+                          new_stops_clean = new_stops_clean.rename(columns={
+                              'code': 'Bus Stop Code',
+                              'name': 'Bus Stop Name', 
+                              'street': 'Street/Road',
+                              'lat': 'Latitude',
+                              'lon': 'Longitude'
+                          })
+                      
+                      # Add metadata columns
+                      new_stops_clean.insert(0, 'Change Type', 'NEW')
+                      new_stops_clean.insert(1, 'Date Added', readable_date.replace('_', '/'))
+                      
+                      # Save new stops only file
+                      new_stops_file = f"data/new_bus_stops_{readable_date}.csv"
+                      new_stops_clean.to_csv(new_stops_file, index=False)
+                      
+                      print(f"✅ Created new stops file: {new_stops_file} ({len(new_stops_clean)} stops)")
+              
+              # ============ 2. CREATE NAME CHANGES ONLY FILE ============
+              if 'change_type' in changes_df.columns:
+                  name_changes = changes_df[changes_df['change_type'] == 'name_changed'].copy()
+                  
+                  if not name_changes.empty:
+                      # Create name changes summary
+                      name_changes_clean = name_changes[['code', 'name', 'old_name', 'street']].copy() if 'old_name' in name_changes.columns else name_changes[['code', 'name', 'street']].copy()
+                      name_changes_clean = name_changes_clean.rename(columns={
+                          'code': 'Bus Stop Code',
+                          'name': 'New Name',
+                          'old_name': 'Previous Name',
+                          'street': 'Street/Road'
+                      })
+                      
+                      # Add metadata
+                      name_changes_clean.insert(0, 'Change Type', 'NAME_CHANGED')
+                      name_changes_clean.insert(1, 'Date Changed', readable_date.replace('_', '/'))
+                      
+                      # Save name changes file
+                      name_changes_file = f"data/name_changes_{readable_date}.csv"
+                      name_changes_clean.to_csv(name_changes_file, index=False)
+                      
+                      print(f"✅ Created name changes file: {name_changes_file} ({len(name_changes_clean)} changes)")
+              
+              # ============ 3. CREATE COMPREHENSIVE SUMMARY FILE ============
+              # This will be the main "changes only" download
+              summary_data = []
+              
+              # Process each change type
+              for change_type in ['new', 'name_changed', 'removed']:
+                  if 'change_type' in changes_df.columns:
+                      subset = changes_df[changes_df['change_type'] == change_type].copy()
+                      
+                      if not subset.empty:
+                          for _, row in subset.iterrows():
+                              summary_row = {
+                                  'Change Type': change_type.upper().replace('_', ' '),
+                                  'Bus Stop Code': row.get('code', ''),
+                                  'Bus Stop Name': row.get('corrected_name', row.get('name', '')),
+                                  'Street/Road': row.get('street', ''),
+                                  'Latitude': row.get('lat', ''),
+                                  'Longitude': row.get('lon', ''),
+                                  'Date Processed': readable_date.replace('_', '/'),
+                                  'Source': row.get('name_source', 'LTA'),
+                              }
+                              
+                              # Add old name for name changes
+                              if change_type == 'name_changed' and 'old_name' in row:
+                                  summary_row['Previous Name'] = row.get('old_name', '')
+                              
+                              # Add change reason if available
+                              if 'change_reason' in row:
+                                  summary_row['Reason'] = row.get('change_reason', '')
+                              
+                              summary_data.append(summary_row)
+              
+              if summary_data:
+                  summary_df = pd.DataFrame(summary_data)
+                  
+                  # Save comprehensive summary
+                  summary_file = f"data/bus_stop_changes_summary_{readable_date}.csv"
+                  summary_df.to_csv(summary_file, index=False)
+                  
+                  print(f"✅ Created comprehensive summary: {summary_file} ({len(summary_df)} total changes)")
+                  
+                  # Create a simple text summary too
+                  text_summary = f"""Bus Stop Changes Summary - {readable_date.replace('_', '/')}
+          ===============================================
+
+          Total Changes Detected: {len(summary_df)}
+
+          Breakdown by Change Type:
+          """
+                  
+                  for change_type, count in summary_stats.items():
+                      text_summary += f"  • {change_type.upper().replace('_', ' ')}: {count}\n"
+                  
+                  text_summary += f"""
+          Files Generated:
+          • bus_stop_changes_summary_{readable_date}.csv - All changes in one file  
+          • new_bus_stops_{readable_date}.csv - New stops only
+          • name_changes_{readable_date}.csv - Name changes only
+
+          Data Source: LTA DataMall + SimplyGo corrections
+          Generated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+          """
+                  
+                  # Save text summary
+                  text_summary_file = f"data/changes_summary_{readable_date}.txt"
+                  with open(text_summary_file, 'w', encoding='utf-8') as f:
+                      f.write(text_summary)
+                  
+                  print(f"✅ Created text summary: {text_summary_file}")
+              
+              print("✅ All user-friendly summary files created successfully!")
+              
+          except Exception as e:
+              print(f"❌ Error creating summary files: {e}")
+              import traceback
+              traceback.print_exc()
+          EOF
+
+      - name: Check for significant changes
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "Checking for significant changes..."
+
+          SIGNIFICANT_CHANGE=false
+
+          if [ "${CHANGES_DETECTED:-0}" -gt 50 ]; then
+            echo "SIGNIFICANT: Large number of changes detected ($CHANGES_DETECTED)"
+            SIGNIFICANT_CHANGE=true
+          fi
+
+          if [ "${NEW_STOPS:-0}" -gt 20 ]; then
+            echo "SIGNIFICANT: Many new bus stops ($NEW_STOPS)"
+            SIGNIFICANT_CHANGE=true
+          fi
+
+          if [ "${REMOVED_STOPS:-0}" -gt 20 ]; then
+            echo "SIGNIFICANT: Many removed bus stops ($REMOVED_STOPS)"
+            SIGNIFICANT_CHANGE=true
+          fi
+
+          echo "SIGNIFICANT_CHANGE=$SIGNIFICANT_CHANGE" >> $GITHUB_ENV
+
+      - name: Commit results with summary files
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "Committing results and summary files to repository..."
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+
+          TIMESTAMP=$(date +'%d%m%Y_%H%M')
+          readable_date=$(date +'%d/%m/%Y')
+
+          # Add main data files
+          [ -f "data/lta_correction.csv" ] && git add "data/lta_correction.csv"
+
+          # Add all data files
+          for file in data/*.csv data/*.txt logs/*.log output/*.csv; do
+            [ -f "$file" ] && git add "$file"
+          done
+
+          # Count summary files for commit message
+          SUMMARY_FILES_COUNT=0
+          [ -f "data/new_bus_stops_"*".csv" ] && SUMMARY_FILES_COUNT=$((SUMMARY_FILES_COUNT + 1))
+          [ -f "data/name_changes_"*".csv" ] && SUMMARY_FILES_COUNT=$((SUMMARY_FILES_COUNT + 1))  
+          [ -f "data/bus_stop_changes_summary_"*".csv" ] && SUMMARY_FILES_COUNT=$((SUMMARY_FILES_COUNT + 1))
+          [ -f "data/changes_summary_"*".txt" ] && SUMMARY_FILES_COUNT=$((SUMMARY_FILES_COUNT + 1))
+
+          # Create comprehensive commit message
+          COMMIT_MSG="🚌 Bus data update ${readable_date}: ${TOTAL_STOPS:-0} stops"
+
+          if [ "${CHANGES_DETECTED:-0}" -gt 0 ]; then
+            COMMIT_MSG="$COMMIT_MSG, ${CHANGES_DETECTED} changes detected"
+            
+            # Add change breakdown
+            [ "${NEW_STOPS:-0}" -gt 0 ] && COMMIT_MSG="$COMMIT_MSG (+${NEW_STOPS} new)"
+            [ "${NAME_CHANGES:-0}" -gt 0 ] && COMMIT_MSG="$COMMIT_MSG (~${NAME_CHANGES} renamed)"
+            [ "${REMOVED_STOPS:-0}" -gt 0 ] && COMMIT_MSG="$COMMIT_MSG (-${REMOVED_STOPS} removed)"
+            
+            # Add summary files info
+            if [ "$SUMMARY_FILES_COUNT" -gt 0 ]; then
+              COMMIT_MSG="$COMMIT_MSG, ${SUMMARY_FILES_COUNT} summary files"
+            fi
+          else
+            COMMIT_MSG="$COMMIT_MSG, no changes detected"
+          fi
+
+          COMMIT_MSG="$COMMIT_MSG, ${CORRECTIONS:-0} corrections applied"
+
+          # Add efficiency info
+          if [ "${CHANGES_DETECTED:-0}" -gt 0 ]; then
+            COMMIT_MSG="$COMMIT_MSG (${EFFICIENCY:-100}% efficiency)"
+          fi
+
+          # Commit with descriptive message
+          if git diff --staged --quiet; then
+            echo "ℹ️ No changes to commit"
+          else
+            git commit -m "$COMMIT_MSG"
+            echo "✅ Committed with message: $COMMIT_MSG"
+            
+            # Show what was committed
+            echo "📁 Files committed:"
+            git diff --name-only HEAD~1 HEAD | sed 's/^/   • /'
+          fi
+
+          # Push with retry mechanism
+          echo "⬆️ Pushing to remote repository..."
+          if ! git push origin main; then
+            echo "⚠️ First push failed, trying pull and rebase..."
+            git pull --rebase origin main
+            git push origin main
+          fi
+
+          echo "✅ Successfully pushed to repository"
+
+      - name: Debug and create improved Slack payload
+        if: steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "🔍 Creating improved Slack payload with better formatting..."
+
+          # Debug current environment variables
+          echo "=== ENVIRONMENT VARIABLES ==="
+          echo "CHANGES_DETECTED: ${CHANGES_DETECTED:-0}"
+          echo "NEW_STOPS: ${NEW_STOPS:-0}"
+          echo "TOTAL_STOPS: ${TOTAL_STOPS:-0}"
+          echo "CORRECTIONS: ${CORRECTIONS:-0}"
+          echo "PREVIOUS_DATE: ${PREVIOUS_DATE}"
+          echo "CURRENT_DATE: ${CURRENT_DATE}"
+          echo "=============================="
+
+          # Create improved and safer JSON payload
+          python3 << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+
+          def create_improved_slack_payload():
+              """Create improved Slack payload with better formatting"""
+              
+              # Get environment variables with safe defaults
+              changes = int(os.getenv('CHANGES_DETECTED', '0'))
+              new_stops = int(os.getenv('NEW_STOPS', '0'))
+              name_changes = int(os.getenv('NAME_CHANGES', '0'))
+              removed_stops = int(os.getenv('REMOVED_STOPS', '0'))
+              total_stops = int(os.getenv('TOTAL_STOPS', '0'))
+              corrections = int(os.getenv('CORRECTIONS', '0'))
+              
+              # Handle percentage safely
+              try:
+                  correction_pct = float(os.getenv('CORRECTION_PCT', '0'))
+                  efficiency = float(os.getenv('EFFICIENCY', '100'))
+              except:
+                  correction_pct = 0.0
+                  efficiency = 100.0
+              
+              previous_date = os.getenv('PREVIOUS_DATE', 'Unknown')
+              current_date = os.getenv('CURRENT_DATE', 'Unknown')
+              
+              # Determine status
+              if changes == 0:
+                  status_color = "good"
+                  status_emoji = "✅"
+                  status_text = "No Changes"
+              elif changes <= 20:
+                  status_color = "warning"
+                  status_emoji = "⚠️"
+                  status_text = "Minor Changes"
+              else:
+                  status_color = "danger"
+                  status_emoji = "🚨"
+                  status_text = "Major Changes"
+
+              # Base repository info
+              github_repo = os.getenv('GITHUB_REPOSITORY', 'your-repo/bus-stop-data')
+              repo_url = f"https://github.com/{github_repo}/raw/main/data"
+              
+              # Get current date for file names
+              readable_date = datetime.now().strftime("%d_%m_%Y")
+              
+              # Build download buttons array
+              buttons = []
+              
+              # Add changes file button if changes detected
+              if changes > 0:
+                  import glob
+                  change_files = glob.glob('data/LTA_changes_*.csv')
+                  if change_files:
+                      changes_file = os.path.basename(sorted(change_files)[-1])
+                      buttons.append({
+                          "type": "button",
+                          "text": f"📥 All Changes ({changes})",
+                          "url": f"{repo_url}/{changes_file}",
+                          "style": "primary"
+                      })
+              
+              # Add new stops button if new stops exist
+              if new_stops > 0:
+                  new_stops_file = f"new_bus_stops_{readable_date}.csv"
+                  if os.path.exists(f"data/{new_stops_file}"):
+                      buttons.append({
+                          "type": "button", 
+                          "text": f"🆕 New Stops ({new_stops})",
+                          "url": f"{repo_url}/{new_stops_file}",
+                          "style": "good"
+                      })
+              
+              # Add name changes button if name changes exist
+              if name_changes > 0:
+                  name_changes_file = f"name_changes_{readable_date}.csv"
+                  if os.path.exists(f"data/{name_changes_file}"):
+                      buttons.append({
+                          "type": "button",
+                          "text": f"✏️ Name Changes ({name_changes})",
+                          "url": f"{repo_url}/{name_changes_file}",
+                          "style": "default"
+                      })
+              
+              # Add summary button if summary exists
+              summary_file = f"bus_stop_changes_summary_{readable_date}.csv"
+              if os.path.exists(f"data/{summary_file}"):
+                  buttons.append({
+                      "type": "button",
+                      "text": "📊 Summary Report",
+                      "url": f"{repo_url}/{summary_file}",
+                      "style": "default"
+                  })
+              
+              # Always add complete dataset button
+              buttons.append({
+                  "type": "button",
+                  "text": f"📊 Complete Dataset ({total_stops:,})",
+                  "url": f"{repo_url}/lta_correction.csv",
+                  "style": "default"
+              })
+              
+              # Add repository and logs buttons
+              buttons.extend([
+                  {
+                      "type": "button",
+                      "text": "📈 View Repository",
+                      "url": f"https://github.com/{github_repo}",
+                      "style": "default"
+                  },
+                  {
+                      "type": "button", 
+                      "text": "🔍 View Logs",
+                      "url": f"https://github.com/{github_repo}/actions",
+                      "style": "default"
+                  }
+              ])
+
+              # Create main attachment - FIXED FORMATTING
+              main_attachment = {
+                  "color": status_color,
+                  "title": f"{status_emoji} Collection Results - {status_text}",
+                  "fields": [
+                      {
+                          "title": "📊 Summary",
+                          "value": f"Compared *{previous_date}* → *{current_date}*\nProcessed *{total_stops:,}* total bus stops",
+                          "short": False
+                      },
+                      {
+                          "title": "📈 Changes Detected", 
+                          "value": str(changes),
+                          "short": True
+                      },
+                      {
+                          "title": "🆕 New Stops",
+                          "value": str(new_stops),
+                          "short": True
+                      },
+                      {
+                          "title": "✏️ Name Changes",
+                          "value": str(name_changes),
+                          "short": True
+                      },
+                      {
+                          "title": "🗑️ Removed Stops", 
+                          "value": str(removed_stops),
+                          "short": True
+                      },
+                      {
+                          "title": "🔄 Corrections Applied",
+                          "value": f"{corrections} ({correction_pct:.2f}%)",
+                          "short": True
+                      },
+                      {
+                          "title": "⚡ Efficiency",
+                          "value": f"{efficiency:.2f}%",
+                          "short": True
+                      }
+                  ],
+                  "actions": buttons,
+                  "footer": "Bus Stop SG Collection | Auto-updated weekly",
+                  "ts": int(datetime.now().timestamp())
+              }
+
+              # Create attachments array
+              attachments = [main_attachment]
+              
+              # Add new stops details if available - IMPROVED FORMATTING
+              if new_stops > 0:
+                  try:
+                      new_stops_details = json.loads(os.getenv('NEW_STOPS_DETAILS', '[]'))
+                      if new_stops_details:
+                          stops_text = []
+                          for stop in new_stops_details[:4]:  # Limit to 4 for better display
+                              code = stop.get('code', 'N/A')
+                              name = stop.get('name', 'N/A')
+                              street = stop.get('street', 'N/A')
+                              # More compact format
+                              stops_text.append(f"`{code}` {name} ({street})")
+                          
+                          # Use single \n for proper line breaks
+                          details_text = "\n".join(stops_text)
+                          if len(new_stops_details) > 4:
+                              details_text += f"\n... and {len(new_stops_details) - 4} more new stops"
+                          
+                          attachments.append({
+                              "color": "#36a64f",
+                              "title": "🆕 New Bus Stops Details",
+                              "text": details_text,
+                              "footer": f"Click 'New Stops ({new_stops})' button above to download CSV"
+                          })
+                  except:
+                      pass
+              
+              # Add download info if changes detected - CLEANER FORMAT
+              if changes > 0:
+                  download_items = []
+                  
+                  if changes > 0:
+                      download_items.append("📥 **All Changes**: Complete technical change log")
+                  if new_stops > 0:
+                      download_items.append(f"🆕 **New Stops**: {new_stops} newly added stops")
+                  if name_changes > 0:
+                      download_items.append(f"✏️ **Name Changes**: {name_changes} updated names")
+                  if os.path.exists(f"data/bus_stop_changes_summary_{readable_date}.csv"):
+                      download_items.append("📊 **Summary Report**: User-friendly consolidated report")
+                  download_items.append(f"📋 **Complete Dataset**: All {total_stops:,} bus stops")
+                  
+                  # Use single \n and cleaner text
+                  attachments.append({
+                      "color": "#3498db",
+                      "title": "📥 Available Downloads",
+                      "text": "\n".join(download_items),
+                      "footer": "All files generated automatically and ready for download"
+                  })
+
+              # Create final payload
+              payload = {
+                  "text": "🚌 Bus Stop Collection Complete",
+                  "attachments": attachments
+              }
+
+              return payload
+
+          # Generate and save the payload
+          payload = create_improved_slack_payload()
+
+          with open('slack_payload_improved.json', 'w') as f:
+              json.dump(payload, f, indent=2)
+
+          print("✅ Improved Slack payload created with better formatting")
+          print(f"📊 Payload stats:")
+          print(f"   - Attachments: {len(payload['attachments'])}")
+          print(f"   - Buttons: {len(payload['attachments'][0]['actions'])}")
+          print(f"   - Size: {len(json.dumps(payload))} characters")
+
+          EOF
+
+          echo "✅ Improved payload generation completed"
+
+      - name: Validate and send improved Slack notification
+        if: success() && steps.schedule_check.outputs.should_run == 'true'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            echo "🔍 Validating improved JSON payload..."
+            
+            # Check if payload file exists and is valid JSON
+            if [ -f "slack_payload_improved.json" ]; then
+              echo "📄 Improved payload file found, checking JSON validity..."
+              
+              # Validate JSON
+              if python3 -m json.tool slack_payload_improved.json > /dev/null 2>&1; then
+                echo "✅ JSON is valid"
+                
+                # Show payload size
+                PAYLOAD_SIZE=$(wc -c < slack_payload_improved.json)
+                echo "📏 Payload size: $PAYLOAD_SIZE bytes"
+                
+                # Send to Slack
+                echo "📤 Sending improved notification to Slack..."
+                
+                RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+                  -H 'Content-type: application/json' \
+                  -d @slack_payload_improved.json \
+                  "$SLACK_WEBHOOK")
+                
+                HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+                RESPONSE_BODY=$(echo "$RESPONSE" | head -n -1)
+                
+                echo "📊 Response status: $HTTP_CODE"
+                echo "📝 Response body: $RESPONSE_BODY"
+                
+                if [ "$HTTP_CODE" -eq 200 ] && [ "$RESPONSE_BODY" = "ok" ]; then
+                  echo "✅ Improved notification sent successfully!"
+                else
+                  echo "❌ Failed to send notification"
+                  echo "   Status: $HTTP_CODE"
+                  echo "   Response: $RESPONSE_BODY"
+                  
+                  # Show first 500 chars of payload for debugging
+                  echo "🔍 Payload preview (first 500 chars):"
+                  head -c 500 slack_payload_improved.json
+                  echo ""
+                fi
+              else
+                echo "❌ Invalid JSON in payload file"
+                echo "🔍 JSON validation error:"
+                python3 -m json.tool slack_payload_improved.json 2>&1 || true
+              fi
+            else
+              echo "❌ Improved payload file not found"
+              ls -la slack_payload*.json || echo "No payload files found"
+            fi
+          else
+            echo "⚠️ SLACK_WEBHOOK not configured, skipping notification"
+          fi
+
+      - name: Send failure notification
+        if: failure() && steps.schedule_check.outputs.should_run == 'true'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK" ]; then
+            curl -X POST -H 'Content-type: application/json' \
+              --data '{
+                "text":"❌ Bus Stop Collection Failed",
+                "attachments":[{
+                  "color":"danger",
+                  "title":"🚨 Enhanced Workflow Error",
+                  "text":"The enhanced bus stop collection workflow has failed. Please check the logs for details.",
+                  "actions":[{
+                    "type":"button",
+                    "text":"🔍 Check Logs",
+                    "url":"https://github.com/'${GITHUB_REPOSITORY}'/actions",
+                    "style":"danger"
+                  }]
+                }]
+              }' \
+              "$SLACK_WEBHOOK"
+          fi
+
+      - name: Summary
+        if: always() && steps.schedule_check.outputs.should_run == 'true'
+        run: |
+          echo "================================="
+          echo "BI-WEEKLY WORKFLOW COMPLETE"
+          echo "================================="
+          echo "Total Stops: ${TOTAL_STOPS:-0}"
+          echo "Changes Detected: ${CHANGES_DETECTED:-0}"
+          echo "  - New: ${NEW_STOPS:-0}"
+          echo "  - Renamed: ${NAME_CHANGES:-0}"
+          echo "  - Removed: ${REMOVED_STOPS:-0}"
+          echo "Corrections: ${CORRECTIONS:-0} (${CORRECTION_PCT:-0}%)"
+          echo "Efficiency: ${EFFICIENCY:-100}%"
+          echo "Date Range: ${PREVIOUS_DATE} → ${CURRENT_DATE}"
+          echo "Summary Files Generated: Yes"
+          echo "Dynamic Downloads: Available"
+          echo "Schedule: Bi-weekly (Every 2 weeks, Monday 08:00 SGT)"
+          echo "Next Run: $(date -d '+14 days' +'%Y-%m-%d') 08:00 SGT"
+          echo "================================="

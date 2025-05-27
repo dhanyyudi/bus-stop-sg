@@ -1,7 +1,0 @@
-code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
-74929,Tampines St 96,Blk 953C,"299, 299",,True,2025-05-27T06:03:35.920440
-43159,Hillview Ave,Bef Glendale Pk Condo,"177, 177",,True,2025-05-27T06:03:36.500959
-74919,Tampines St 96,Blk 951A,"299, 299",,True,2025-05-27T06:03:36.520306
-74959,Tampines St 96,Blk 969C,"299, 299",,True,2025-05-27T06:03:36.560693
-76321,Tampines St 11,Opp Blk 124,"292, 292",,True,2025-05-27T06:03:42.259477
-76481,Tampines Lane,Blk 136,"292, 292",,True,2025-05-27T06:03:43.459102
