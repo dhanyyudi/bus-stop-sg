@@ -5,6 +5,139 @@ This repository contains a comprehensive script for collecting and merging bus s
 1. **LTA DataMall API** (Primary source - original data)
 2. **SimplyGo Website** (Secondary source - for name corrections)
 
+## 📋 System Workflow
+
+### General Workflow Overview
+
+```mermaid
+flowchart TD
+    A[🕐 Cron Job Trigger<br/>Every Monday 1 AM UTC] --> B[📡 Download LTA DataMall<br/>Current Date Data]
+
+    B --> C{🔍 Previous Data<br/>Available?}
+
+    C -->|No| D[🆕 First Run<br/>All Stops = NEW]
+    C -->|Yes| E[📊 Load Previous Data<br/>e.g., LTA_bus_stops_16052025.csv]
+
+    E --> F[🔧 Normalize Bus Codes<br/>Convert to 5-digit format<br/>1239 to 01239]
+
+    F --> G[⚖️ Compare Datasets<br/>Code Changes + Name Changes]
+
+    G --> H{📈 Changes<br/>Detected?}
+
+    H -->|No Changes| I[✅ Skip Scraping<br/>Use LTA Data Only]
+    H -->|Changes Found| J[🎯 Filter for Scraping<br/>New + Name Changed Only<br/>Skip Removed]
+
+    D --> K[🕷️ SimplyGo Scraping<br/>Parallel Workers]
+    J --> K
+
+    K --> L[🔄 Apply Corrections<br/>Merge SimplyGo Names<br/>with Original LTA Data]
+
+    I --> M[💾 Save Final Dataset<br/>lta_correction.csv]
+    L --> M
+
+    M --> N[📤 Commit to GitHub<br/>Update Repository]
+
+    N --> O[📢 Slack Notification<br/>Success/Failure Stats]
+
+    O --> P[😴 Wait Until Next Monday]
+    P --> A
+
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style G fill:#fff3e0
+    style K fill:#e8f5e8
+    style M fill:#fce4ec
+    style O fill:#f1f8e9
+```
+
+### Detailed Technical Implementation
+
+```mermaid
+flowchart TD
+ subgraph subGraph0["🕐 GitHub Actions Trigger"]
+        A1["Cron: 0 1 * * 1<br>Every Monday 1 AM UTC"]
+        A2["Manual Dispatch<br>workflow_dispatch"]
+        A3["Start Workflow"]
+  end
+ subgraph subGraph1["📡 LTA DataMall API"]
+        B1["Download Bus Stops<br>GET /BusStops API"]
+        B2["Paginate Results<br>500 records per call"]
+        B3["Save Raw Data<br>LTA_bus_stops_DDMMYYYY.csv"]
+  end
+ subgraph subGraph2["🔍 Data Comparison Engine"]
+        C1["Find Previous File<br>glob pattern matching"]
+        C2["Load Previous Data<br>pandas.read_csv"]
+        C3["Normalize Codes<br>int to 5-digit string"]
+        C4["Compare Code Sets<br>new_codes - old_codes"]
+        C5["Compare Names<br>for common codes"]
+        C6["Generate Change Report<br>LTA_changes_DATE1-DATE2.csv"]
+  end
+ subgraph subGraph3["🎯 Change Processing"]
+        D1{"Total Changes > 0?"}
+        D2["Skip All Processing<br>No changes detected"]
+        D3["Filter Scraping Targets<br>new + name_changed only"]
+        D4["Apply Test Limit<br>if --limit specified"]
+  end
+ subgraph subGraph4["🕷️ SimplyGo Scraper"]
+        E1["Initialize WebDriver Pool<br>Chrome headless instances"]
+        E2["Parallel Processing<br>ThreadPoolExecutor"]
+        E3["Form Submission<br>Bus code to SimplyGo website"]
+        E4["HTML Parsing<br>BeautifulSoup extraction"]
+        E5["Save Results<br>simplygo_bus_stops_TIMESTAMP.csv"]
+  end
+ subgraph subGraph5["🔄 Data Merging"]
+        F1["Load Original LTA Data<br>as base dataset"]
+        F2["Filter Valid SimplyGo Results<br>success = True + valid names"]
+        F3["Apply Name Corrections<br>LTA name to SimplyGo name"]
+        F4["Add Source Tracking<br>name_source column"]
+        F5["Save Final Dataset<br>lta_correction.csv"]
+  end
+ subgraph subGraph6["📤 Output & Notification"]
+        G1["Extract Statistics<br>Python script"]
+        G2["Git Commit & Push<br>Automated updates"]
+        G3["Slack Notification<br>JSON payload"]
+        G4["Workflow Summary<br>GitHub Actions logs"]
+  end
+    A1 --> A3
+    A2 --> A3
+    B1 --> B2
+    B2 --> B3
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+    C4 --> C5
+    C5 --> C6
+    D1 -- No --> D2
+    D1 -- Yes --> D3
+    D3 --> D4
+    E1 --> E2
+    E2 --> E3
+    E3 --> E4
+    E4 --> E5
+    F1 --> F2
+    F2 --> F3
+    F3 --> F4
+    F4 --> F5
+    G1 --> G2
+    G2 --> G3
+    G3 --> G4
+    A3 --> B1
+    B3 --> C1
+    C6 --> D1
+    D2 --> G1
+    D4 --> E1
+    E5 --> F1
+    F5 --> G1
+    G4 --> A1
+    style A3 fill:#e3f2fd
+    style B3 fill:#f3e5f5
+    style C6 fill:#fff8e1
+    style D1 fill:#e8f5e8
+    style E5 fill:#fce4ec
+    style F5 fill:#f1f8e9
+    style G3 fill:#ede7f6
+```
+
 ## 🎯 Key Features
 
 ### ✅ **Comprehensive Change Detection**
@@ -235,14 +368,58 @@ This saves HTML files and screenshots to `debug/` folder.
 Update your workflow file to use the new script:
 
 ```yaml
-- name: Run data collection
-  env:
-    LTA_API_KEY: ${{ secrets.LTA_API_KEY }}
-  run: |
-    python bus_stop_merger_complete.py \
-      --lta-api-key "$LTA_API_KEY" \
-      --workers 4 \
-      --batch-size 20
+name: Bus Stop Data Collection
+
+on:
+  schedule:
+    - cron: "0 1 * * 1" # Every Monday at 1 AM UTC
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install selenium beautifulsoup4 pandas tqdm webdriver-manager requests numpy
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: Run data collection
+        env:
+          LTA_API_KEY: ${{ secrets.LTA_API_KEY }}
+        run: |
+          python bus_stop_merger_complete.py \
+            --lta-api-key "$LTA_API_KEY" \
+            --workers 4 \
+            --batch-size 20
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/
+          git diff --staged --quiet || git commit -m "🚌 Weekly bus stop data update $(date '+%Y-%m-%d')"
+          git push
+
+      - name: Send Slack notification
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: "Bus stop data collection completed with status: ${{ job.status }}"
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
 ## 🆕 Version History
