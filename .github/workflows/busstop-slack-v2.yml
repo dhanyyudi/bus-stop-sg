@@ -1,4 +1,4 @@
-name: Bus Stop Monitor Fixed
+name: Bus Stop Regular Monitor
 
 on:
   schedule:
@@ -31,7 +31,7 @@ jobs:
         run: |
           if [ -n "$SLACK_WEBHOOK" ]; then
             curl -X POST -H 'Content-type: application/json' \
-              --data '{"text":"🔄 Bus Stop Collection Started (Fixed Version)"}' \
+              --data '{"text":"🔄 Bus Stop Collection Started"}' \
               "$SLACK_WEBHOOK"
           else
             echo "WARNING: SLACK_WEBHOOK not configured"
@@ -62,7 +62,7 @@ jobs:
           LTA_API_KEY: ${{ secrets.LTA_API_KEY }}
           PYTHONIOENCODING: utf-8
         run: |
-          echo "Starting FIXED bus stop data collection..."
+          echo "Starting bus stop data collection..."
           echo "Using script: bus_stop_merger_final.py"
 
           python bus_stop_merger_final.py \
@@ -215,7 +215,7 @@ jobs:
             "attachments": [
               {
                 "color": "$( [ "${CHANGES_DETECTED:-0}" -gt 0 ] && echo "warning" || echo "good" )",
-                "title": "Fixed Collection Results",
+                "title": "Collection Results",
                 "fields": [
                   {
                     "title": "Total Stops",
@@ -248,7 +248,7 @@ jobs:
                     "short": true
                   }
                 ],
-                "footer": "Fixed Bus Monitor",
+                "footer": "Bus Stop SG Collection",
                 "ts": $(date +%s)
               }
             ]
