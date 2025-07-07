@@ -1,0 +1,14 @@
+2025-07-07 01:54:41,486 - __main__ - INFO - Python version: 3.10.18 (main, Jun  4 2025, 04:04:42) [GCC 13.3.0]
+2025-07-07 01:54:41,487 - __main__ - INFO - Starting FIXED comprehensive workflow with 4 workers
+2025-07-07 01:54:41,487 - __main__ - INFO - This version uses ORIGINAL LTA data with proper code normalization
+2025-07-07 01:54:41,487 - __main__ - INFO - STARTING ENHANCED BUS STOP DATA COLLECTION WORKFLOW
+2025-07-07 01:54:41,487 - __main__ - INFO - ================================================================================
+2025-07-07 01:54:41,487 - __main__ - INFO - STEP 1: Downloading original LTA DataMall data...
+2025-07-07 01:54:41,487 - __main__ - INFO - Starting download from LTA DataMall...
+2025-07-07 01:54:42,234 - __main__ - INFO - API request (skip=0) completed in 0.75 seconds
+2025-07-07 01:54:42,234 - __main__ - ERROR - API request failed with status code 404
+2025-07-07 01:54:42,234 - __main__ - INFO - LTA DataMall download completed in 0.75 seconds
+2025-07-07 01:54:42,234 - __main__ - ERROR - Failed to download LTA DataMall data. Aborting workflow.
+2025-07-07 01:54:42,235 - __main__ - INFO - Enhanced comprehensive workflow completed in 0.75 seconds
+2025-07-07 01:54:42,235 - __main__ - ERROR - Workflow completed with errors.
+2025-07-07 01:54:42,235 - __main__ - INFO - Script execution finished
