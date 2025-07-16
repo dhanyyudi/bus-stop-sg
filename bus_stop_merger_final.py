@@ -131,7 +131,7 @@ def download_lta_datamall(api_key, email=None, password=None, output_file=None):
         
         try:
             while True:
-                url = f"http://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip={i}"
+                url = f"https://datamall2.mytransport.sg/ltaodataservice/BusStops?$skip={i}"
                 
                 headers = {
                     'AccountKey': api_key,
