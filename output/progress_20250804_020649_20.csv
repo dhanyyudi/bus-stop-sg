@@ -1,0 +1,21 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+11159,C'wealth Ave,Aft Ch of Our Saviour,"51, 51, 111, 111, 145, 145, 186, 186, 195, 195, 970, 970",,True,2025-08-04T02:08:22.570647
+65219,Punggol Pl,Opp Punggol Int,"117, 117, 117M, 117M",,True,2025-08-04T02:07:25.904073
+21329,Jln Boon Lay,Opp UTOC Engrg,"249, 249",,True,2025-08-04T02:09:45.323489
+19089,Dover Rd,ACS Independent,"33, 33, 74, 74, 166, 166, 196, 196, 667, 667",,True,2025-08-04T02:09:24.404439
+04151,Victoria St,Cath of The Good Shepherd,"130, 130, 133, 133, 145, 145, 197, 197, 851, 851, 851e, 851e, 960, 960, 960e, 960e",,True,2025-08-04T02:07:40.987477
+11001,Ghim Moh Rd,Opp Ghim Moh Ter,"92, 92, 100, 100, 111, 111",,True,2025-08-04T02:08:21.334987
+04029,Bencoolen St,Bef Bencoolen Stn Exit A,"64, 64, 65, 65, 139, 139",,True,2025-08-04T02:07:38.062510
+14281,Telok Blangah Way,SAFRA Mt Faber,"124, 124, 131, 131, 195, 195",,True,2025-08-04T02:08:41.942954
+21519,Chin Bee Ave,Aft Chin Bee Rd,"79, 79",,True,2025-08-04T02:09:55.036687
+19071,Dover Rd,Opp ACS Independent,"33, 33, 74, 74, 166, 166, 196, 196, 667, 667",,True,2025-08-04T02:09:20.470299
+07571,Middle Rd,Sunshine Plaza,"56, 56",,True,2025-08-04T02:08:01.595397
+10101,Jln Bt Merah,Opp Bt Merah Sec Sch,"14, 14, 123, 123, 139, 139, 147, 147, 153, 153, 196, 196, 197, 197, 198, 198, 855, 855, 961, 961, 961M, 961M",,True,2025-08-04T02:08:09.892471
+21229,Corporation Rd,Opp S'pore A'space Mfg,"30, 30, 49, 49, 98, 98, 98M, 98M, 178, 178",,True,2025-08-04T02:09:39.684081
+18159,Portsdown Rd,one-north Stn/Galaxis,"191, 191",,True,2025-08-04T02:09:17.416134
+32159,Lim Chu Kang Rd,Bef Lim Chu Kang Substation No. 1,"975, 975",,True,2025-08-04T02:07:19.141568
+21179,Corporation Rd,Corp Pl,"30, 30, 79, 79, 98, 98, 98M, 98M, 154, 154, 178, 178, 240, 240",,True,2025-08-04T02:09:33.475773
+32151,Lim Chu Kang Rd,Opp Lim Chu Kang Substation No. 1,"975, 975",,True,2025-08-04T02:07:19.038503
+19059,Dover Rd,UTown - RC4,"33, 33, 196, 196",,True,2025-08-04T02:09:19.245062
+10049,Kg Bahru Rd,Opp Kampong Bahru Ter,"2, 2, 12, 12, 54, 54, 61, 61, 122, 122, 124, 124, 143, 143, 147, 147, 166, 166, 167, 167, 174, 174, 190, 190, 196, 196, 197, 197, 961, 961, 961M, 961M",,True,2025-08-04T02:08:09.060343
+32149,Lim Chu Kang Rd,B26 Lim Chu Kang Rd,"975, 975",,True,2025-08-04T02:07:19.230618

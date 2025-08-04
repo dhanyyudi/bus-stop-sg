@@ -1,0 +1,61 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+11159,C'wealth Ave,Aft Ch of Our Saviour,"51, 51, 111, 111, 145, 145, 186, 186, 195, 195, 970, 970",,True,2025-08-04T02:08:22.570647
+65219,Punggol Pl,Opp Punggol Int,"117, 117, 117M, 117M",,True,2025-08-04T02:07:25.904073
+21329,Jln Boon Lay,Opp UTOC Engrg,"249, 249",,True,2025-08-04T02:09:45.323489
+19089,Dover Rd,ACS Independent,"33, 33, 74, 74, 166, 166, 196, 196, 667, 667",,True,2025-08-04T02:09:24.404439
+04151,Victoria St,Cath of The Good Shepherd,"130, 130, 133, 133, 145, 145, 197, 197, 851, 851, 851e, 851e, 960, 960, 960e, 960e",,True,2025-08-04T02:07:40.987477
+11001,Ghim Moh Rd,Opp Ghim Moh Ter,"92, 92, 100, 100, 111, 111",,True,2025-08-04T02:08:21.334987
+04029,Bencoolen St,Bef Bencoolen Stn Exit A,"64, 64, 65, 65, 139, 139",,True,2025-08-04T02:07:38.062510
+14281,Telok Blangah Way,SAFRA Mt Faber,"124, 124, 131, 131, 195, 195",,True,2025-08-04T02:08:41.942954
+21519,Chin Bee Ave,Aft Chin Bee Rd,"79, 79",,True,2025-08-04T02:09:55.036687
+19071,Dover Rd,Opp ACS Independent,"33, 33, 74, 74, 166, 166, 196, 196, 667, 667",,True,2025-08-04T02:09:20.470299
+07571,Middle Rd,Sunshine Plaza,"56, 56",,True,2025-08-04T02:08:01.595397
+10101,Jln Bt Merah,Opp Bt Merah Sec Sch,"14, 14, 123, 123, 139, 139, 147, 147, 153, 153, 196, 196, 197, 197, 198, 198, 855, 855, 961, 961, 961M, 961M",,True,2025-08-04T02:08:09.892471
+21229,Corporation Rd,Opp S'pore A'space Mfg,"30, 30, 49, 49, 98, 98, 98M, 98M, 178, 178",,True,2025-08-04T02:09:39.684081
+18159,Portsdown Rd,one-north Stn/Galaxis,"191, 191",,True,2025-08-04T02:09:17.416134
+32159,Lim Chu Kang Rd,Bef Lim Chu Kang Substation No. 1,"975, 975",,True,2025-08-04T02:07:19.141568
+21179,Corporation Rd,Corp Pl,"30, 30, 79, 79, 98, 98, 98M, 98M, 154, 154, 178, 178, 240, 240",,True,2025-08-04T02:09:33.475773
+32151,Lim Chu Kang Rd,Opp Lim Chu Kang Substation No. 1,"975, 975",,True,2025-08-04T02:07:19.038503
+19059,Dover Rd,UTown - RC4,"33, 33, 196, 196",,True,2025-08-04T02:09:19.245062
+10049,Kg Bahru Rd,Opp Kampong Bahru Ter,"2, 2, 12, 12, 54, 54, 61, 61, 122, 122, 124, 124, 143, 143, 147, 147, 166, 166, 167, 167, 174, 174, 190, 190, 196, 196, 197, 197, 961, 961, 961M, 961M",,True,2025-08-04T02:08:09.060343
+32149,Lim Chu Kang Rd,B26 Lim Chu Kang Rd,"975, 975",,True,2025-08-04T02:07:19.230618
+32141,Lim Chu Kang Rd,B27 Lim Chu Kang Rd,"975, 975",,True,2025-08-04T02:07:17.886343
+18051,Ayer Rajah Ave,one-north Stn,"91, 91",,True,2025-08-04T02:09:13.142067
+16161,Kent Ridge Cres,NUS Museums,"151, 151",,True,2025-08-04T02:09:00.309820
+10287,Alexandra Rd,Opp Cycle & Carriage,"33, 33, 64, 64, 120, 120, 145, 145",,True,2025-08-04T02:08:15.165244
+21321,Jln Boon Lay,UTOC Engrg,"249, 249",,True,2025-08-04T02:09:40.478380
+32139,Lim Chu Kang Rd,Aft Chinese & Muslim Cemy,"975, 975",,True,2025-08-04T02:07:10.987727
+11401,Holland Ave,Holland V Stn/Blk 12,"48, 48, 61, 61, 95, 95, 106, 106, 970, 970",,True,2025-08-04T02:08:28.250663
+20029,AYE,Opp NEWest,"97, 97, 154, 154, 197, 197, 198, 198, 201, 201",,True,2025-08-04T02:09:25.496881
+10181,Tiong Bahru Rd,Bef Ar-Rabitah Mque,"32, 32, 33, 33, 63, 63, 64, 64, 120, 120, 132, 132, 145, 145",,True,2025-08-04T02:08:13.568173
+17089,West Coast Lk,Bef West Coast Cres,"175, 175",,True,2025-08-04T02:09:07.381973
+16199,Kent Ridge Cres,Bef Architecture Dr,"95, 95, 96, 96, 151, 151",,True,2025-08-04T02:09:02.998342
+10439,Lengkok Bahru,Opp Enabling Village,"139, 139",,True,2025-08-04T02:08:16.738159
+16041,Pasir Panjang Rd,Opp Luxe Ville,"10, 10, 30, 30, 51, 51, 143, 143, 183, 183, 188, 188, 200, 200",,True,2025-08-04T02:08:53.506928
+21261,Quality Rd,Aft Chin Bee Ave,"79, 79, 246, 246",,True,2025-08-04T02:09:40.335929
+15191,Pasir Panjang Rd,Pasir Panjang Stn/FC,"10, 10, 30, 30, 51, 51, 143, 143, 175, 175, 176, 176, 188, 188",,True,2025-08-04T02:08:48.966387
+14129,Telok Blangah Rd,HarbourFront Stn Exit A,"10, 10, 30, 30, 30e, 30e, 57, 57, 61, 61, 65, 65, 80, 80, 97, 97, 97e, 97e, 100, 100, 123M, 123M, 131, 131, 143, 143, 145, 145, 166, 166, 855, 855",,True,2025-08-04T02:08:41.767631
+14539,Beach View Rd,Beach Stn Ter,"123, 123",,True,2025-08-04T02:08:48.779289
+16209,Pasir Panjang Rd,Horizon Residences,"10, 10, 30, 30, 51, 51, 143, 143, 188, 188, 200, 200",,True,2025-08-04T02:09:03.131054
+14501,Telok Blangah St 31,Opp Blk 91A,"120, 120, 124, 124",,True,2025-08-04T02:08:46.468876
+65211,Punggol Pl,Bef Punggol Int,"117, 117, 117M, 117M",,True,2025-08-04T02:07:24.113332
+32131,Lim Chu Kang Rd,Bef Chinese & Muslim Cemy,"975, 975",,True,2025-08-04T02:07:11.265592
+04331,River Valley Rd,Bef Fort Canning Stn,"32, 32, 54, 54, 195, 195",,True,2025-08-04T02:07:42.908647
+21029,Jln Ahmad Ibrahim,Aft Corp Pl,"30, 30, 49, 49, 98M, 98M, 154, 154, 178, 178, 240, 240",,True,2025-08-04T02:09:32.204494
+16101,Science Pk Rd,Inst of Micro-electronics,"183, 183",,True,2025-08-04T02:09:00.782053
+04339,River Valley Rd,Fort Canning Stn Exit B,"32, 32, 54, 54, 195, 195",,True,2025-08-04T02:07:44.236762
+20021,AYE,NEWest,"97, 97, 154, 154, 197, 197, 198, 198, 201, 201",,True,2025-08-04T02:09:24.512380
+12201,Clementi Ave 6,LogisHub @ Clementi,"185, 185, 189, 189",,True,2025-08-04T02:08:28.649249
+18059,Ayer Rajah Ave,Opp one-north Stn,"91, 91",,True,2025-08-04T02:09:13.593604
+07518,Bencoolen St,Opp NAFA Campus 3,"56, 56, 131, 131, 147, 147, 166, 166, 857, 857, 980, 980",,True,2025-08-04T02:07:57.287970
+21151,Jurong Port Rd,CWT Distripk,"79, 79, 98, 98",,True,2025-08-04T02:09:32.185182
+32129,Lim Chu Kang Rd,Bef Old Choa Chu KaNG Rd,"975, 975",,True,2025-08-04T02:07:11.163034
+21511,Chin Bee Ave,Bef Chin Bee Rd,"79, 79",,True,2025-08-04T02:09:54.902297
+08079,Prinsep St,Sch of The Arts,"64, 64, 65, 65, 131, 131, 139, 139, 147, 147, 166, 166, 857, 857",,True,2025-08-04T02:08:02.421573
+12209,Clementi Ave 6,Opp LogisHub @ Clementi,"185, 185, 189, 189",,True,2025-08-04T02:08:29.318137
+14509,Telok Blangah St 31,Blk 92B,"124, 124",,True,2025-08-04T02:08:47.284378
+13099,River Valley Rd,Bef Kim Yam Rd,"32, 32, 54, 54, 139, 139, 195, 195",,True,2025-08-04T02:08:41.190775
+16091,AYE,NUS Sports Ctr,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2025-08-04T02:08:55.863396
+07351,Lavender St,Arc 380,"13, 13, 67, 67, 133, 133, 141, 141, 145, 145",,True,2025-08-04T02:07:54.294626
+04159,Victoria St,Aft CHIJMES,"2, 2, 12, 12, 12e, 12e, 33, 33, 147, 147, 190, 190",,True,2025-08-04T02:07:41.146525
+32121,Lim Chu Kang Rd,Aft Old Choa Chu Kang Rd,"975, 975",,True,2025-08-04T02:07:11.184701
