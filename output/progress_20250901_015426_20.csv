@@ -1,0 +1,21 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+04151,Victoria St,Cath of The Good Shepherd,"130, 130, 133, 133, 145, 145, 197, 197, 851, 851, 851e, 851e, 960, 960, 960e, 960e",,True,2025-09-01T01:55:21.470004
+32141,Lim Chu Kang Rd,B27 Lim Chu Kang Rd,"975, 975",,True,2025-09-01T01:54:50.074249
+04159,Victoria St,Aft CHIJMES,"2, 2, 12, 12, 12e, 12e, 33, 33, 147, 147, 190, 190",,True,2025-09-01T01:55:23.510215
+16161,Kent Ridge Cres,NUS Museums,"151, 151",,True,2025-09-01T01:56:46.728045
+65739,Sentul Wk,Teck Lee Stn Exit A,"117, 117, 117M, 117M",,True,2025-09-01T01:55:07.926882
+16101,Science Pk Rd,Inst of Micro-electronics,"183, 183",,True,2025-09-01T01:56:42.907658
+18051,Ayer Rajah Ave,one-north Stn,"91, 91",,True,2025-09-01T01:56:58.407415
+16041,Pasir Panjang Rd,Opp Luxe Ville,"10, 10, 30, 30, 51, 51, 143, 143, 183, 183, 188, 188, 200, 200",,True,2025-09-01T01:56:34.906897
+16099,AYE,Opp NUS Sports Ctr,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2025-09-01T01:56:41.524116
+17171,C'wealth Ave West,Clementi Stn Exit A/Mall,"14, 14, 52, 52, 78, 78, 96, 96, 105, 105, 106, 106, 147, 147, 154, 154, 156, 156, 165, 165, 166, 166, 175, 175, 183, 183, 185, 185, 189, 189, 201, 201, 285, 285",,True,2025-09-01T01:56:54.822804
+65731,Sentul Wk,Teck Lee Stn Exit B,"117, 117, 117M, 117M",,True,2025-09-01T01:55:07.174599
+17099,Clementi Rd,UTown - Cendana,"33, 33, 96, 96, 151, 151, 183, 183, 196, 196",,True,2025-09-01T01:56:54.252914
+32139,Lim Chu Kang Rd,Aft Chinese & Muslim Cemy,"975, 975",,True,2025-09-01T01:54:43.815745
+17089,West Coast Lk,Bef West Coast Cres,"175, 175",,True,2025-09-01T01:56:50.794568
+65219,Punggol Pl,Opp Punggol Int,"117, 117, 117M, 117M",,True,2025-09-01T01:55:03.677950
+65211,Punggol Pl,Bef Punggol Int,"117, 117, 117M, 117M",,True,2025-09-01T01:55:00.179795
+21029,Jln Ahmad Ibrahim,Aft Corp Pl,"30, 30, 49, 49, 98M, 98M, 154, 154, 178, 178, 240, 240",,True,2025-09-01T01:57:17.250967
+16049,Pasir Panjang Rd,Whitehaven,"10, 10, 30, 30, 51, 51, 143, 143, 183, 183, 188, 188, 200, 200",,True,2025-09-01T01:56:40.014477
+20021,AYE,NEWest,"97, 97, 154, 154, 197, 197, 198, 198, 201, 201",,True,2025-09-01T01:57:09.931188
+13063,River Valley Rd,RV Suites,"14, 14, 65, 65",,True,2025-09-01T01:56:19.845249
