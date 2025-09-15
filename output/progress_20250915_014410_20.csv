@@ -1,0 +1,21 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+10109,Jln Bt Merah,Bt Merah Sec Sch,"14, 14, 147, 147, 196, 196, 197, 197, 855, 855, 961, 961, 961M, 961M",,True,2025-09-15T01:45:48.553100
+10287,Alexandra Rd,Opp Cycle & Carriage,"33, 33, 64, 64, 120, 120, 145, 145",,True,2025-09-15T01:45:52.269483
+50361,Towner Rd,Opp Hong Wen Sch,"140, 140",,True,2025-09-15T01:45:00.655915
+11401,Holland Ave,Holland V Stn/Blk 12,"48, 48, 61, 61, 95, 95, 106, 106, 970, 970",,True,2025-09-15T01:46:06.328872
+16041,Pasir Panjang Rd,Opp Luxe Ville,"10, 10, 30, 30, 51, 51, 143, 143, 183, 183, 188, 188, 200, 200",,True,2025-09-15T01:46:30.433200
+20029,AYE,Opp NEWest,"97, 97, 154, 154, 197, 197, 198, 198, 201, 201",,True,2025-09-15T01:47:02.242693
+10181,Tiong Bahru Rd,Bef Ar-Rabitah Mque,"32, 32, 33, 33, 63, 63, 64, 64, 120, 120, 132, 132, 145, 145",,True,2025-09-15T01:45:50.345359
+14539,Beach View Rd,Beach Stn Ter,"123, 123",,True,2025-09-15T01:46:28.281099
+18011,Alexandra Rd,Aft HortPark,"51, 51, 61, 61, 93, 93, 97, 97, 100, 100, 120, 120, 166, 166, 963, 963",,True,2025-09-15T01:46:49.787614
+32139,Lim Chu Kang Rd,Aft Chinese & Muslim Cemy,"975, 975",,True,2025-09-15T01:44:38.302604
+65219,Punggol Pl,Opp Punggol Int,"117, 117, 117M, 117M",,True,2025-09-15T01:45:00.970780
+07529,Jln Besar,Jln Besar Stn Exit A,"23, 23, 64, 64, 65, 65, 67, 67, 130, 130, 139, 139, 147, 147, 170, 170, 857, 857",,True,2025-09-15T01:45:36.563979
+65211,Punggol Pl,Bef Punggol Int,"117, 117, 117M, 117M",,True,2025-09-15T01:45:01.098971
+14509,Telok Blangah St 31,Blk 92B,"124, 124",,True,2025-09-15T01:46:27.742370
+11161,C'wealth Ave,C'wealth Stn Exit A/D,"32, 32, 61, 61, 100, 100, 105, 105, 111, 111, 145, 145, 147, 147, 196, 196, 198, 198, 970, 970",,True,2025-09-15T01:46:01.033925
+16199,Kent Ridge Cres,Bef Architecture Dr,"95, 95, 96, 96, 151, 151",,True,2025-09-15T01:46:42.691847
+13099,River Valley Rd,Bef Kim Yam Rd,"32, 32, 54, 54, 139, 139, 195, 195",,True,2025-09-15T01:46:20.612543
+13069,River Valley Rd,RV Residences,"14, 14, 32, 32, 65, 65, 139, 139, 970, 970",,True,2025-09-15T01:46:14.042749
+07359,Lavender St,Opp Arc 380,"13, 13, 67, 67, 133, 133, 141, 141, 145, 145",,True,2025-09-15T01:45:31.806943
+10439,Lengkok Bahru,Opp Enabling Village,"139, 139",,True,2025-09-15T01:45:54.753018
