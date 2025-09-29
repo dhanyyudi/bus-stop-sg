@@ -1,0 +1,17 @@
+Bus Stop Changes Summary - 29/09/2025
+===============================================
+
+Total Changes Detected: 604
+
+Breakdown by Change Type:
+  • NAME CHANGED: 555
+  • REMOVED: 27
+  • NEW: 22
+
+Files Generated:
+• bus_stop_changes_summary_29_09_2025.csv - All changes in one file  
+• new_bus_stops_29_09_2025.csv - New stops only
+• name_changes_29_09_2025.csv - Name changes only
+
+Data Source: LTA DataMall + SimplyGo corrections
+Generated: 2025-09-29 01:58:08
