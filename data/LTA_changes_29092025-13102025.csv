@@ -1,0 +1,19 @@
+code,name,street,lat,lon,code_normalized,change_type,change_reason,old_name
+02051,The Float @ Marina Bay,Raffles Ave,1.289503056,103.8590339,02051,new,New bus stop code,
+05649,Aft Cantonment Rd,Keppel Rd,1.2723842122117,103.84093912218094,05649,name_changed,Bus stop name changed,Opp Customs Port Br HQ
+16199,Aft Architecture Dr,Kent Ridge Cres,1.29639303583424,103.77072917887465,16199,name_changed,Bus stop name changed,Bef Architecture Dr
+43061,Hillview Stn Exit B,Upp Bt Timah Rd,1.36301133873589,103.76739148459211,43061,name_changed,Bus stop name changed,Hillview Stn
+43081,Opp St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36704277799302,103.76572777796798,43081,name_changed,Bus stop name changed,Opp Assumption Eng Sch
+43089,St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36705664197789,103.76608527288596,43089,name_changed,Bus stop name changed,Aft Assumption Eng Sch
+43091,Opp Cashew Stn,Upp Bt Timah Rd,1.36863253283887,103.76474109358477,43091,name_changed,Bus stop name changed,Bef Cashew Stn
+43099,Assumption Eng Sch,Upp Bt Timah Rd,1.36872205121157,103.76498636840047,43099,name_changed,Bus stop name changed,Assumption Pathway Sch
+57041,Nee Soon Camp,Sembawang Rd,1.41069268256433,103.82192312004506,57041,name_changed,Bus stop name changed,Nee Soon HQ 22 SIB
+57049,Opp Nee Soon Camp,Sembawang Rd,1.41082027802703,103.82233527798766,57049,name_changed,Bus stop name changed,Opp Nee Soon HQ 22 SIB
+62131,S'Goon Stn Exit B,Upp S'goon Rd,1.3489790064228,103.87277432797597,62131,name_changed,Bus stop name changed,S'goon Stn Exit H
+65011,Blk 266/Opp The Rivervale,Punggol Rd,1.38159696830765,103.89720951783346,65011,name_changed,Bus stop name changed,Opp The Rivervale
+65019,Opp Blk 266/The Rivervale,Punggol Rd,1.38151407829697,103.89749237919405,65019,name_changed,Bus stop name changed,The Rivervale
+67569,Bet Blks 430D/433A,Sengkang West Way,1.39504999232889,103.87700000087196,67569,name_changed,Bus stop name changed,Blk 432A
+75069,Blk 970A,Bedok Reservoir Rd,1.341667,103.937323,75069,name_changed,Bus stop name changed,Blk 960A
+75201,Blk 833,Tampines St 83,1.35078500992301,103.93353377368994,75201,name_changed,Bus stop name changed,Blk 835
+77321,Pasir Ris Int/Mall,Pasir Ris Ctrl,1.37313477197799,103.94802646457005,77321,name_changed,Bus stop name changed,Aft Pasir Ris St 53
+77329,Opp Pasir Ris Mall,Pasir Ris Ctrl,1.37283117687855,103.94765867700548,77329,name_changed,Bus stop name changed,Bef Pasir Ris St 53

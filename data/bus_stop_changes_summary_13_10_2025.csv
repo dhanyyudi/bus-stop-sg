@@ -1,0 +1,19 @@
+Change Type,Bus Stop Code,Bus Stop Name,Street/Road,Latitude,Longitude,Date Processed,Source,Reason,Previous Name
+NEW,2051,The Float @ Marina Bay,Raffles Ave,1.289503056,103.8590339,13/10/2025,LTA,New bus stop code,
+NAME CHANGED,5649,Aft Cantonment Rd,Keppel Rd,1.2723842122117,103.84093912218094,13/10/2025,LTA,Bus stop name changed,Opp Customs Port Br HQ
+NAME CHANGED,16199,Aft Architecture Dr,Kent Ridge Cres,1.29639303583424,103.77072917887465,13/10/2025,LTA,Bus stop name changed,Bef Architecture Dr
+NAME CHANGED,43061,Hillview Stn Exit B,Upp Bt Timah Rd,1.36301133873589,103.76739148459212,13/10/2025,LTA,Bus stop name changed,Hillview Stn
+NAME CHANGED,43081,Opp St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36704277799302,103.76572777796798,13/10/2025,LTA,Bus stop name changed,Opp Assumption Eng Sch
+NAME CHANGED,43089,St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36705664197789,103.76608527288596,13/10/2025,LTA,Bus stop name changed,Aft Assumption Eng Sch
+NAME CHANGED,43091,Opp Cashew Stn,Upp Bt Timah Rd,1.36863253283887,103.76474109358476,13/10/2025,LTA,Bus stop name changed,Bef Cashew Stn
+NAME CHANGED,43099,Assumption Eng Sch,Upp Bt Timah Rd,1.36872205121157,103.76498636840049,13/10/2025,LTA,Bus stop name changed,Assumption Pathway Sch
+NAME CHANGED,57041,Nee Soon Camp,Sembawang Rd,1.41069268256433,103.82192312004506,13/10/2025,LTA,Bus stop name changed,Nee Soon HQ 22 SIB
+NAME CHANGED,57049,Opp Nee Soon Camp,Sembawang Rd,1.41082027802703,103.82233527798766,13/10/2025,LTA,Bus stop name changed,Opp Nee Soon HQ 22 SIB
+NAME CHANGED,62131,S'Goon Stn Exit B,Upp S'goon Rd,1.3489790064228,103.87277432797596,13/10/2025,LTA,Bus stop name changed,S'goon Stn Exit H
+NAME CHANGED,65011,Blk 266/Opp The Rivervale,Punggol Rd,1.38159696830765,103.89720951783346,13/10/2025,LTA,Bus stop name changed,Opp The Rivervale
+NAME CHANGED,65019,Opp Blk 266/The Rivervale,Punggol Rd,1.38151407829697,103.89749237919403,13/10/2025,LTA,Bus stop name changed,The Rivervale
+NAME CHANGED,67569,Bet Blks 430D/433A,Sengkang West Way,1.39504999232889,103.87700000087196,13/10/2025,LTA,Bus stop name changed,Blk 432A
+NAME CHANGED,75069,Blk 970A,Bedok Reservoir Rd,1.341667,103.937323,13/10/2025,LTA,Bus stop name changed,Blk 960A
+NAME CHANGED,75201,Blk 833,Tampines St 83,1.35078500992301,103.93353377368994,13/10/2025,LTA,Bus stop name changed,Blk 835
+NAME CHANGED,77321,Pasir Ris Int/Mall,Pasir Ris Ctrl,1.37313477197799,103.94802646457003,13/10/2025,LTA,Bus stop name changed,Aft Pasir Ris St 53
+NAME CHANGED,77329,Opp Pasir Ris Mall,Pasir Ris Ctrl,1.37283117687855,103.94765867700548,13/10/2025,LTA,Bus stop name changed,Bef Pasir Ris St 53
