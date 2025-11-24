@@ -1,0 +1,17 @@
+Bus Stop Changes Summary - 24/11/2025
+===============================================
+
+Total Changes Detected: 29
+
+Breakdown by Change Type:
+  • NAME CHANGED: 17
+  • NEW: 11
+  • REMOVED: 1
+
+Files Generated:
+• bus_stop_changes_summary_24_11_2025.csv - All changes in one file  
+• new_bus_stops_24_11_2025.csv - New stops only
+• name_changes_24_11_2025.csv - Name changes only
+
+Data Source: LTA DataMall + SimplyGo corrections
+Generated: 2025-11-24 01:53:59
