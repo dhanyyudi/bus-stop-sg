@@ -1,0 +1,54 @@
+Change Type,Bus Stop Code,Bus Stop Name,Street/Road,Latitude,Longitude,Date Processed,Source,Reason,Previous Name
+NEW,2051,The Float @ Marina Bay,Raffles Ave,1.289503056,103.8590339,31/12/2025,LTA,New bus stop code,
+NEW,29161,Bef Pandan Rd,Jln Buroh,1.305051,103.7501045,31/12/2025,LTA,New bus stop code,
+NEW,40281,Blk 467B,Bukit Batok West Avenue 9,1.356067,103.743617,31/12/2025,LTA,New bus stop code,
+NEW,40289,Opp Blk 467B,Bukit Batok West Avenue 9,1.355843,103.743394,31/12/2025,LTA,New bus stop code,
+NEW,40491,Bef Plantation Cres,Tengah Garden Ave,1.3529839,103.733645,31/12/2025,LTA,New bus stop code,
+NEW,40499,Aft Plantation Cres,Tengah Garden Ave,1.35312,103.733401,31/12/2025,LTA,New bus stop code,
+NEW,40509,Opp Blk 131D,Tengah Garden Ave,1.35439,103.7322,31/12/2025,LTA,New bus stop code,
+NEW,43551,Opp Blk 435A,Bt Batok West Ave 5,1.359789,103.740915,31/12/2025,LTA,New bus stop code,
+NEW,43559,Bef Blk 435A,Bt Batok West Ave 5,1.359264,103.741387,31/12/2025,LTA,New bus stop code,
+NEW,47721,Blk 568B,Woodlands Dr 17,1.427909,103.790055,31/12/2025,LTA,New bus stop code,
+NEW,58469,Opp Innova Pr Sch,Champions Way,1.429821,103.790446,31/12/2025,LTA,New bus stop code,
+NEW,62301,Blk 181,Hougang St 13,1.346168,103.887806,31/12/2025,LTA,New bus stop code,
+NEW,62309,Blk 178A,Hougang St 13,1.346389,103.887888,31/12/2025,LTA,New bus stop code,
+NEW,63119,Aft Hougang Ave 1,Tampines Rd,1.360591,103.886919,31/12/2025,LTA,New bus stop code,
+NEW,65669,Northshore Pr Sch,Northshore Dr,1.41874,103.905114,31/12/2025,LTA,New bus stop code,
+NEW,65799,Blk 654D,Punggol East,1.398633889,103.9191989,31/12/2025,LTA,New bus stop code,
+NEW,66701,Goldenhill Pk Condo,Lor Chuan,1.352218,103.862853,31/12/2025,LTA,New bus stop code,
+NEW,66709,Lor Chuan Stn Exit B,Lor Chuan,1.352149,103.863065,31/12/2025,LTA,New bus stop code,
+NEW,67709,Opp Blk 465A,Fernvale St,1.398734,103.87682,31/12/2025,LTA,New bus stop code,
+NEW,67749,Thanggam Stn Exit A,Fernvale Rd,1.396944,103.8755543,31/12/2025,LTA,New bus stop code,
+NEW,67771,Blk 995B,Buangkok Dr,1.386549,103.8833,31/12/2025,LTA,New bus stop code,
+NEW,67779,Opp Blk 995C,Buangkok Dr,1.386616,103.8835,31/12/2025,LTA,New bus stop code,
+NEW,67781,Opp Blk 408A,Buangkok Dr,1.388311,103.87674,31/12/2025,LTA,New bus stop code,
+NEW,67789,Blk 409A,Buangkok Dr,1.388633,103.877235,31/12/2025,LTA,New bus stop code,
+NEW,67791,Opp Blk 415A,Buangkok Dr,1.388434,103.8798,31/12/2025,LTA,New bus stop code,
+NEW,67799,Blk 415A,Buangkok Dr,1.388615,103.8798,31/12/2025,LTA,New bus stop code,
+NEW,69091,Opp Blk 227,Sang Nila Utama,1.339682,103.8760221,31/12/2025,LTA,New bus stop code,
+NEW,74941,Opp Blk 961A,Bedok Reservoir Rd,1.3402645,103.9361875,31/12/2025,LTA,New bus stop code,
+NEW,74949,Blk 961A,Bedok Reservoir Rd,1.340276,103.936345,31/12/2025,LTA,New bus stop code,
+NEW,74961,Blk 966,Tampines St 96,1.338423,103.939921,31/12/2025,LTA,New bus stop code,
+NEW,74969,Opp Blk 966,Tampines St 96,1.3384905,103.9401585,31/12/2025,LTA,New bus stop code,
+NEW,74979,Blk 967A,Tampines St 95,1.341129,103.9396815,31/12/2025,LTA,New bus stop code,
+NAME CHANGED,5649,Aft Cantonment Rd,Keppel Rd,1.2723842122117,103.84093912218094,31/12/2025,LTA,Bus stop name changed,Opp Customs Port Br HQ
+NAME CHANGED,16199,Aft Architecture Dr,Kent Ridge Cres,1.29639303583424,103.77072917887465,31/12/2025,LTA,Bus stop name changed,Bef Architecture Dr
+NAME CHANGED,43061,Hillview Stn Exit B,Upp Bt Timah Rd,1.36301133873589,103.76739148459212,31/12/2025,LTA,Bus stop name changed,Hillview Stn
+NAME CHANGED,43081,Opp St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36704277799302,103.76572777796798,31/12/2025,LTA,Bus stop name changed,Opp Assumption Eng Sch
+NAME CHANGED,43089,St. Joseph's Ch (Bt Timah),Upp Bt Timah Rd,1.36705664197789,103.76608527288596,31/12/2025,LTA,Bus stop name changed,Aft Assumption Eng Sch
+NAME CHANGED,43091,Opp Cashew Stn,Upp Bt Timah Rd,1.36863253283887,103.76474109358476,31/12/2025,LTA,Bus stop name changed,Bef Cashew Stn
+NAME CHANGED,43099,Assumption Eng Sch,Upp Bt Timah Rd,1.36872205121157,103.76498636840049,31/12/2025,LTA,Bus stop name changed,Assumption Pathway Sch
+NAME CHANGED,57041,Nee Soon Camp,Sembawang Rd,1.41069268256433,103.82192312004506,31/12/2025,LTA,Bus stop name changed,Nee Soon HQ 22 SIB
+NAME CHANGED,57049,Opp Nee Soon Camp,Sembawang Rd,1.41082027802703,103.82233527798766,31/12/2025,LTA,Bus stop name changed,Opp Nee Soon HQ 22 SIB
+NAME CHANGED,62131,S'Goon Stn Exit B,Upp S'goon Rd,1.3489790064228,103.87277432797596,31/12/2025,LTA,Bus stop name changed,S'goon Stn Exit H
+NAME CHANGED,65011,Blk 266/Opp The Rivervale,Punggol Rd,1.38159696830765,103.89720951783346,31/12/2025,LTA,Bus stop name changed,Opp The Rivervale
+NAME CHANGED,65019,Opp Blk 266/The Rivervale,Punggol Rd,1.38151407829697,103.89749237919403,31/12/2025,LTA,Bus stop name changed,The Rivervale
+NAME CHANGED,65569,Blk 656A,Punggol East,1.400196,103.920347,31/12/2025,LTA,Bus stop name changed,Blk 654D
+NAME CHANGED,67569,Bet Blks 430D/433A,Sengkang West Way,1.39504999232889,103.87700000087196,31/12/2025,LTA,Bus stop name changed,Blk 432A
+NAME CHANGED,75069,Blk 970A,Bedok Reservoir Rd,1.341667,103.937323,31/12/2025,LTA,Bus stop name changed,Blk 960A
+NAME CHANGED,75201,Blk 833,Tampines St 83,1.35078500992301,103.93353377368994,31/12/2025,LTA,Bus stop name changed,Blk 835
+NAME CHANGED,77321,Pasir Ris Int/Mall,Pasir Ris Dr 8,1.37313477197799,103.94802646457003,31/12/2025,LTA,Bus stop name changed,Aft Pasir Ris St 53
+NAME CHANGED,77329,Opp Pasir Ris Mall,Pasir Ris Dr 8,1.37283117687855,103.94765867700548,31/12/2025,LTA,Bus stop name changed,Bef Pasir Ris St 53
+REMOVED,27381,Blk 749,Jurong West St 75,1.348143,103.698209,31/12/2025,LTA,Removed bus stop code,
+REMOVED,27389,Gek Poh Shop Ctr,Jurong West St 75,1.34845180903204,103.6981043781398,31/12/2025,LTA,Removed bus stop code,
+REMOVED,78059,Blk 210,Pasir Ris Dr 1,1.36677606799955,103.96113744871693,31/12/2025,LTA,Removed bus stop code,
