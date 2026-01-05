@@ -1,0 +1,17 @@
+Bus Stop Changes Summary - 05/01/2026
+===============================================
+
+Total Changes Detected: 53
+
+Breakdown by Change Type:
+  • NEW: 32
+  • NAME CHANGED: 18
+  • REMOVED: 3
+
+Files Generated:
+• bus_stop_changes_summary_05_01_2026.csv - All changes in one file  
+• new_bus_stops_05_01_2026.csv - New stops only
+• name_changes_05_01_2026.csv - Name changes only
+
+Data Source: LTA DataMall + SimplyGo corrections
+Generated: 2026-01-05 02:05:07

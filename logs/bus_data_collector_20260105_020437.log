@@ -1,0 +1,88 @@
+2026-01-05 02:04:37,070 - __main__ - INFO - Python version: 3.10.19 (main, Oct 10 2025, 01:01:37) [GCC 13.3.0]
+2026-01-05 02:04:37,070 - __main__ - INFO - Starting FIXED comprehensive workflow with 4 workers
+2026-01-05 02:04:37,070 - __main__ - INFO - This version uses ORIGINAL LTA data with proper code normalization
+2026-01-05 02:04:37,070 - __main__ - INFO - STARTING ENHANCED BUS STOP DATA COLLECTION WORKFLOW
+2026-01-05 02:04:37,070 - __main__ - INFO - ================================================================================
+2026-01-05 02:04:37,070 - __main__ - INFO - STEP 1: Downloading original LTA DataMall data...
+2026-01-05 02:04:37,070 - __main__ - INFO - Starting download from LTA DataMall...
+2026-01-05 02:04:38,336 - __main__ - INFO - API request (skip=0) completed in 1.26 seconds
+2026-01-05 02:04:38,337 - __main__ - INFO - Retrieved 500 records (total: 500)
+2026-01-05 02:04:40,748 - __main__ - INFO - API request (skip=500) completed in 1.22 seconds
+2026-01-05 02:04:40,749 - __main__ - INFO - Retrieved 500 records (total: 1000)
+2026-01-05 02:04:43,219 - __main__ - INFO - API request (skip=1000) completed in 1.26 seconds
+2026-01-05 02:04:43,220 - __main__ - INFO - Retrieved 500 records (total: 1500)
+2026-01-05 02:04:45,660 - __main__ - INFO - API request (skip=1500) completed in 1.23 seconds
+2026-01-05 02:04:45,661 - __main__ - INFO - Retrieved 500 records (total: 2000)
+2026-01-05 02:04:48,092 - __main__ - INFO - API request (skip=2000) completed in 1.21 seconds
+2026-01-05 02:04:48,093 - __main__ - INFO - Retrieved 500 records (total: 2500)
+2026-01-05 02:04:52,029 - __main__ - INFO - API request (skip=2500) completed in 2.71 seconds
+2026-01-05 02:04:52,030 - __main__ - INFO - Retrieved 500 records (total: 3000)
+2026-01-05 02:04:54,511 - __main__ - INFO - API request (skip=3000) completed in 1.24 seconds
+2026-01-05 02:04:54,512 - __main__ - INFO - Retrieved 500 records (total: 3500)
+2026-01-05 02:04:56,957 - __main__ - INFO - API request (skip=3500) completed in 1.20 seconds
+2026-01-05 02:04:56,958 - __main__ - INFO - Retrieved 500 records (total: 4000)
+2026-01-05 02:04:59,466 - __main__ - INFO - API request (skip=4000) completed in 1.26 seconds
+2026-01-05 02:04:59,467 - __main__ - INFO - Retrieved 500 records (total: 4500)
+2026-01-05 02:05:01,913 - __main__ - INFO - API request (skip=4500) completed in 1.19 seconds
+2026-01-05 02:05:01,914 - __main__ - INFO - Retrieved 500 records (total: 5000)
+2026-01-05 02:05:04,193 - __main__ - INFO - API request (skip=5000) completed in 1.02 seconds
+2026-01-05 02:05:04,194 - __main__ - INFO - Retrieved 194 records (total: 5194)
+2026-01-05 02:05:06,401 - __main__ - INFO - API request (skip=5500) completed in 1.10 seconds
+2026-01-05 02:05:06,402 - __main__ - INFO - No more records to fetch from API
+2026-01-05 02:05:06,418 - __main__ - INFO - Saved 5194 ORIGINAL records to data/LTA_bus_stops_05012026.csv
+2026-01-05 02:05:06,418 - __main__ - INFO - LTA DataMall download completed in 29.35 seconds
+2026-01-05 02:05:06,419 - __main__ - INFO - Downloaded 5,194 bus stops from LTA DataMall
+2026-01-05 02:05:06,419 - __main__ - INFO - STEP 2: Performing comprehensive data comparison...
+2026-01-05 02:05:06,419 - __main__ - INFO - Found previous LTA DataMall file: data/LTA_bus_stops_31122025.csv
+2026-01-05 02:05:06,419 - __main__ - INFO - Performing FIXED comprehensive comparison with previous data from data/LTA_bus_stops_31122025.csv
+2026-01-05 02:05:06,425 - __main__ - INFO - === DEBUGGING CODE FORMATS ===
+2026-01-05 02:05:06,426 - __main__ - INFO - Old file sample codes (raw): [1012, 1013, 1019, 1029, 1039]
+2026-01-05 02:05:06,426 - __main__ - INFO - New data sample codes (raw): ['01012', '01013', '01019', '01029', '01039']
+2026-01-05 02:05:06,436 - __main__ - INFO - Old file sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-01-05 02:05:06,437 - __main__ - INFO - New data sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-01-05 02:05:06,444 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,444 - __main__ - INFO - COMPREHENSIVE BUS STOP COMPARISON REPORT (FIXED)
+2026-01-05 02:05:06,444 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,444 - __main__ - INFO - Previous dataset (31122025): 5,194 bus stops
+2026-01-05 02:05:06,444 - __main__ - INFO - Current dataset  (05012026): 5,194 bus stops
+2026-01-05 02:05:06,444 - __main__ - INFO - Net change in quantity: +0
+2026-01-05 02:05:06,444 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-01-05 02:05:06,444 - __main__ - INFO - CODE CHANGES (after normalization):
+2026-01-05 02:05:06,444 - __main__ - INFO -    NEW bus stop codes:     0
+2026-01-05 02:05:06,444 - __main__ - INFO -    REMOVED bus stop codes: 0
+2026-01-05 02:05:06,444 - __main__ - INFO -    UNCHANGED codes:        5,194
+2026-01-05 02:05:06,444 - __main__ - INFO - NAME CHANGES (for same codes):
+2026-01-05 02:05:06,444 - __main__ - INFO -    Bus stops with name changes: 0
+2026-01-05 02:05:06,444 - __main__ - INFO -    Bus stops with same names:   5,194
+2026-01-05 02:05:06,445 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-01-05 02:05:06,445 - __main__ - INFO - TOTAL CHANGES DETECTED: 0
+2026-01-05 02:05:06,445 - __main__ - INFO -    = 0 new + 0 removed + 0 name changes
+2026-01-05 02:05:06,445 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-01-05 02:05:06,445 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,445 - __main__ - INFO - NO CHANGES DETECTED - SimplyGo scraping will be SKIPPED
+2026-01-05 02:05:06,445 - __main__ - INFO -    Current LTA data is identical to previous LTA data
+2026-01-05 02:05:06,445 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,445 - __main__ - INFO - No changes detected after normalization. No SimplyGo scraping needed.
+2026-01-05 02:05:06,446 - __main__ - INFO - Comprehensive LTA data comparison (FIXED) completed in 0.03 seconds
+2026-01-05 02:05:06,446 - __main__ - INFO - STEP 3: Determining bus stops for SimplyGo scraping...
+2026-01-05 02:05:06,446 - __main__ - INFO - ======================================================================
+2026-01-05 02:05:06,446 - __main__ - INFO - NO CHANGES DETECTED
+2026-01-05 02:05:06,446 - __main__ - INFO - ======================================================================
+2026-01-05 02:05:06,446 - __main__ - INFO - Current LTA data is identical to previous LTA data.
+2026-01-05 02:05:06,446 - __main__ - INFO - Skipping SimplyGo scraping - no changes to process.
+2026-01-05 02:05:06,446 - __main__ - INFO - Using original LTA data as final result.
+2026-01-05 02:05:06,479 - __main__ - INFO - Saved LTA-only data to data/lta_correction_20260105_020437.csv
+2026-01-05 02:05:06,479 - __main__ - INFO - Saved consistent copy to data/lta_correction.csv
+2026-01-05 02:05:06,480 - __main__ - INFO - Enhanced comprehensive workflow completed in 29.41 seconds
+2026-01-05 02:05:06,480 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,480 - __main__ - INFO - FIXED WORKFLOW COMPLETED SUCCESSFULLY!
+2026-01-05 02:05:06,480 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,481 - __main__ - INFO - FINAL STATISTICS:
+2026-01-05 02:05:06,481 - __main__ - INFO -    Total bus stops: 5,194
+2026-01-05 02:05:06,481 - __main__ - INFO -    SimplyGo corrections applied: 0
+2026-01-05 02:05:06,481 - __main__ - INFO -    Correction rate: 0.0%
+2026-01-05 02:05:06,481 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,481 - __main__ - INFO - All data saved and ready for use!
+2026-01-05 02:05:06,481 - __main__ - INFO - Main output: data/lta_correction.csv
+2026-01-05 02:05:06,481 - __main__ - INFO - ==========================================================================================
+2026-01-05 02:05:06,482 - __main__ - INFO - Script execution finished
