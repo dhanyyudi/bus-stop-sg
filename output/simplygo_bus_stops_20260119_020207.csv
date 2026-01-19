@@ -1,0 +1,23 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+43719,Gombak Dr,MINDEF Pick-Up/Drop-Off,"177, 177",,True,2026-01-19T02:02:25.550126
+43721,Gombak Dr,MINDEF Pass Office,"177, 177",,True,2026-01-19T02:02:25.620010
+05131,Upp Cross St,Opp Chinatown Stn,"51, 51, 63, 63, 124, 124, 174, 174, 174e, 174e, 186, 186, 851, 851, 851e, 851e, 961, 961, 961M, 961M, 970, 970",,True,2026-01-19T02:02:25.850940
+70282,,,,,False,2026-01-19T02:02:27.146654
+45189,Mandai Rd,Aft Mandai Quarry Rd,"927, 927",,True,2026-01-19T02:02:33.304558
+45181,Mandai Rd,Bef Mandai Quarry Rd,"927, 927",,True,2026-01-19T02:02:33.485697
+45191,Mandai Rd,Opp Home Team Tactical Ctr,"927, 927",,True,2026-01-19T02:02:33.815660
+45199,Mandai Rd,Home Team Tactical Ctr,"927, 927",,True,2026-01-19T02:02:33.942715
+45201,Mandai Rd,Opp Mandai Hill Camp,"927, 927",,True,2026-01-19T02:02:40.229285
+45209,Mandai Rd,Aft Mandai Hill Camp,"927, 927",,True,2026-01-19T02:02:40.386993
+48091,Mandai Rd,Aft Bath Rd,"138, 138",,True,2026-01-19T02:02:41.250838
+48099,Mandai Rd,Aft Mandai Rd Track 7,"138, 138",,True,2026-01-19T02:02:41.275829
+49101,Kranji Rd,Aft Kranji Cl,"925, 925, 925M, 925M",,True,2026-01-19T02:02:47.332538
+58069,Sembawang Rd,Blk 101A,"169, 169, 882, 882",,True,2026-01-19T02:02:47.581007
+68061,Piccadilly,Aft Mornington Cres,"103, 103, 117, 117, 117M, 117M",,True,2026-01-19T02:02:48.798671
+67741,Fernvale Rd,Thanggam Stn Exit B,"374, 374, 679, 679",,True,2026-01-19T02:02:48.832512
+68111,Jln Kayu,Bef Piccadilly Circus/TPE,"39, 39, 86, 86, 102, 102, 103, 103, 117, 117, 117M, 117M, 168, 168, 858, 858",,True,2026-01-19T02:02:53.185289
+68069,Piccadilly,Aft Battersea Rd,"103, 103, 117, 117, 117M, 117M",,True,2026-01-19T02:02:54.235814
+68119,Jln Kayu,Aft Piccadilly Circus/TPE,"39, 39, 86, 86, 102, 102, 103, 103, 117, 117, 117M, 117M, 168, 168, 858, 858",,True,2026-01-19T02:02:55.592155
+73049,Airport Rd,Air Force Trg Cmd,"90, 90, 94, 94",,True,2026-01-19T02:02:55.908635
+99011,Loyang Ave,Bef Hendon Camp,"2, 2, 9, 9, 19, 19, 29, 29, 59, 59, 89, 89, 109, 109",,True,2026-01-19T02:03:00.328510
+99019,Loyang Ave,Aft Hendon Camp,"2, 2, 9, 9, 19, 19, 29, 29, 59, 59, 89, 89, 109, 109",,True,2026-01-19T02:03:00.847515
