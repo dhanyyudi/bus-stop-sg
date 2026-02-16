@@ -44,8 +44,8 @@ jobs:
           echo "📅 Current week: $CURRENT_WEEK of $CURRENT_YEAR"
           echo "🔧 Force run: $FORCE_RUN"
 
-          # Check if this is an even or odd week
-          WEEK_MOD=$((CURRENT_WEEK % 2))
+          # Check if this is an even or odd week (10# forces base-10 to avoid octal issues with leading zeros)
+          WEEK_MOD=$((10#$CURRENT_WEEK % 2))
 
           # Run on even weeks (2, 4, 6, 8, 10, 12, etc.) for bi-weekly schedule
           # You can change this to odd weeks by changing the condition to == 1
@@ -69,7 +69,7 @@ jobs:
 
           # Calculate next run date
           if [ "$SHOULD_RUN" = "false" ]; then
-            NEXT_WEEK=$((CURRENT_WEEK + 1))
+            NEXT_WEEK=$((10#$CURRENT_WEEK + 1))
             if [ "$NEXT_WEEK" -gt 52 ]; then
               NEXT_WEEK=2
               NEXT_YEAR=$((CURRENT_YEAR + 1))
@@ -86,7 +86,7 @@ jobs:
         run: |
           if [ -n "$SLACK_WEBHOOK" ]; then
             CURRENT_WEEK=$(date +%V)
-            NEXT_WEEK=$((CURRENT_WEEK + 1))
+            NEXT_WEEK=$((10#$CURRENT_WEEK + 1))
             
             curl -X POST -H 'Content-type: application/json' \
               --data "{
