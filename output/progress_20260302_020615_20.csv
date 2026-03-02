@@ -1,0 +1,21 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+67689,Sengkang Sq,Sengkang Stn Exit C,"372, 372, 374, 374",,True,2026-03-02T02:06:28.061666
+67759,Compassvale Rd,Compassvale Int,"80, 80, 86, 86, 87, 87, 372, 372, 374, 374",,True,2026-03-02T02:06:28.259843
+05131,Upp Cross St,Opp Chinatown Stn,"51, 51, 63, 63, 124, 124, 174, 174, 174e, 174e, 186, 186, 851, 851, 851e, 851e, 961, 961, 961M, 961M, 970, 970",,True,2026-03-02T02:06:28.302208
+74951,Tampines St 96,Blk 962A,"18M, 18M",,True,2026-03-02T02:06:28.363755
+16091,AYE,NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-02T02:06:36.005100
+43719,Gombak Dr,MINDEF Pick-Up/Drop-Off,"177, 177",,True,2026-03-02T02:06:36.389339
+43721,Gombak Dr,MINDEF Pass Office,"177, 177",,True,2026-03-02T02:06:36.607820
+16099,AYE,Opp NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-02T02:06:36.660111
+45181,Mandai Rd,Bef Mandai Quarry Rd,"927, 927",,True,2026-03-02T02:06:41.698462
+45189,Mandai Rd,Aft Mandai Quarry Rd,"927, 927",,True,2026-03-02T02:06:42.468081
+45191,Mandai Rd,Opp Home Team Tactical Ctr,"927, 927",,True,2026-03-02T02:06:43.882503
+45199,Mandai Rd,Home Team Tactical Ctr,"927, 927",,True,2026-03-02T02:06:43.945639
+45201,Mandai Rd,Opp Mandai Hill Camp,"927, 927",,True,2026-03-02T02:06:47.898667
+45209,Mandai Rd,Aft Mandai Hill Camp,"927, 927",,True,2026-03-02T02:06:48.667236
+47749,W'lands Dr 17,W'lands Hosp,"900, 900, 967, 967",,True,2026-03-02T02:06:51.106628
+48091,Mandai Rd,Aft Bath Rd,"138, 138",,True,2026-03-02T02:06:51.282637
+48099,Mandai Rd,Aft Mandai Rd Track 7,"138, 138",,True,2026-03-02T02:06:54.009945
+49101,Kranji Rd,Aft Kranji Cl,"925, 925, 925M, 925M",,True,2026-03-02T02:06:55.833950
+58069,Sembawang Rd,Blk 101A,"169, 169, 882, 882",,True,2026-03-02T02:06:58.483850
+52241,Toa Payoh Rise,Bef Caldecott Stn/SAVH,"141, 141",,True,2026-03-02T02:06:58.589682

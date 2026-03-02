@@ -1,0 +1,23 @@
+Change Type,Bus Stop Code,Bus Stop Name,Street/Road,Latitude,Longitude,Date Processed,Source,Reason,Previous Name
+NEW,70282,Tai Seng S37B Boarding,Upp Paya Lebar Rd,1.33476173,103.88824505,02/03/2026,LTA,New bus stop code,
+NAME CHANGED,5131,Opp Chinatown Stn,Upp Cross St,1.284073056,103.8453381,02/03/2026,LTA,Bus stop name changed,Opp Hong Lim Cplx
+NAME CHANGED,43719,MINDEF Pick-Up/Drop-Off,Gombak Dr,1.36903972225026,103.76123388888554,02/03/2026,LTA,Bus stop name changed,MINDEF CP
+NAME CHANGED,43721,MINDEF Pass Office,Gombak Dr,1.37076302526768,103.7626491371365,02/03/2026,LTA,Bus stop name changed,Blk 319
+NAME CHANGED,45181,Bef Mandai Quarry Rd,Mandai Rd,1.41163371804971,103.76126994848111,02/03/2026,LTA,Bus stop name changed,Opp Mandai CD Trg Village
+NAME CHANGED,45189,Aft Mandai Quarry Rd,Mandai Rd,1.41134149901997,103.76099444217142,02/03/2026,LTA,Bus stop name changed,Mandai CD Trg Village
+NAME CHANGED,45191,Opp Home Team Tactical Ctr,Mandai Rd,1.41064903489935,103.7634845917912,02/03/2026,LTA,Bus stop name changed,Opp Mandai Police Trg Camp
+NAME CHANGED,45199,Home Team Tactical Ctr,Mandai Rd,1.41035479540467,103.76322407621204,02/03/2026,LTA,Bus stop name changed,Mandai Police Trg Camp
+NAME CHANGED,45201,Opp Mandai Hill Camp,Mandai Rd,1.41047253271791,103.76582403754684,02/03/2026,LTA,Bus stop name changed,Opp Police Tactical Trg Camp
+NAME CHANGED,45209,Aft Mandai Hill Camp,Mandai Rd,1.4099988110322,103.76653377102564,02/03/2026,LTA,Bus stop name changed,Police Tactical Trg Camp
+NAME CHANGED,48091,Aft Bath Rd,Mandai Rd,1.40274777797647,103.81238027797018,02/03/2026,LTA,Bus stop name changed,SCDF Nee Soon Camp
+NAME CHANGED,48099,Aft Mandai Rd Track 7,Mandai Rd,1.4029276207034,103.81200115976088,02/03/2026,LTA,Bus stop name changed,Opp SCDF Nee Soon Camp
+NAME CHANGED,49101,Aft Kranji Cl,Kranji Rd,1.43019265139167,103.75584633886156,02/03/2026,LTA,Bus stop name changed,Opp Ordinance Supply Base
+NAME CHANGED,58069,Blk 101A,Sembawang Rd,1.452187,103.830428,02/03/2026,LTA,Bus stop name changed,Opp Durban Rd
+NAME CHANGED,67741,Thanggam Stn Exit B,Fernvale Rd,1.3967915,103.875701,02/03/2026,LTA,Bus stop name changed,Thanggam Stn
+NAME CHANGED,68061,Aft Mornington Cres,Piccadilly,1.40719212135322,103.87206315994295,02/03/2026,LTA,Bus stop name changed,Sing-China Bldg
+NAME CHANGED,68069,Aft Battersea Rd,Piccadilly,1.40757217631739,103.87228032413654,02/03/2026,LTA,Bus stop name changed,Opp Sing-China Bldg
+NAME CHANGED,68111,Bef Piccadilly Circus/TPE,Jln Kayu,1.40222194447692,103.87138805557646,02/03/2026,LTA,Bus stop name changed,Bef Seletar Camp G
+NAME CHANGED,68119,Aft Piccadilly Circus/TPE,Jln Kayu,1.402186,103.872168,02/03/2026,LTA,Bus stop name changed,Aft Seletar Camp G
+NAME CHANGED,73049,Air Force Trg Cmd,Airport Rd,1.35075966304764,103.89911545547028,02/03/2026,LTA,Bus stop name changed,Air Force Sch
+NAME CHANGED,99011,Bef Hendon Camp,Loyang Ave,1.38328110134472,103.97812168830428,02/03/2026,LTA,Bus stop name changed,Bef Sch of Commando
+NAME CHANGED,99019,Aft Hendon Camp,Loyang Ave,1.3837089764569,103.9784486076832,02/03/2026,LTA,Bus stop name changed,Aft Sch of Commando

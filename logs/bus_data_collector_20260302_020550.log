@@ -1,0 +1,152 @@
+2026-03-02 02:05:50,904 - __main__ - INFO - Python version: 3.10.19 (main, Oct 10 2025, 01:01:37) [GCC 13.3.0]
+2026-03-02 02:05:50,904 - __main__ - INFO - Starting FIXED comprehensive workflow with 4 workers
+2026-03-02 02:05:50,904 - __main__ - INFO - This version uses ORIGINAL LTA data with proper code normalization
+2026-03-02 02:05:50,904 - __main__ - INFO - STARTING ENHANCED BUS STOP DATA COLLECTION WORKFLOW
+2026-03-02 02:05:50,905 - __main__ - INFO - ================================================================================
+2026-03-02 02:05:50,905 - __main__ - INFO - STEP 1: Downloading original LTA DataMall data...
+2026-03-02 02:05:50,905 - __main__ - INFO - Starting download from LTA DataMall...
+2026-03-02 02:05:51,942 - __main__ - INFO - API request (skip=0) completed in 1.04 seconds
+2026-03-02 02:05:51,942 - __main__ - INFO - Retrieved 500 records (total: 500)
+2026-03-02 02:05:54,107 - __main__ - INFO - API request (skip=500) completed in 1.00 seconds
+2026-03-02 02:05:54,109 - __main__ - INFO - Retrieved 500 records (total: 1000)
+2026-03-02 02:05:56,249 - __main__ - INFO - API request (skip=1000) completed in 0.96 seconds
+2026-03-02 02:05:56,250 - __main__ - INFO - Retrieved 500 records (total: 1500)
+2026-03-02 02:05:58,440 - __main__ - INFO - API request (skip=1500) completed in 1.00 seconds
+2026-03-02 02:05:58,442 - __main__ - INFO - Retrieved 500 records (total: 2000)
+2026-03-02 02:06:00,648 - __main__ - INFO - API request (skip=2000) completed in 1.00 seconds
+2026-03-02 02:06:00,649 - __main__ - INFO - Retrieved 500 records (total: 2500)
+2026-03-02 02:06:02,837 - __main__ - INFO - API request (skip=2500) completed in 0.97 seconds
+2026-03-02 02:06:02,838 - __main__ - INFO - Retrieved 500 records (total: 3000)
+2026-03-02 02:06:05,024 - __main__ - INFO - API request (skip=3000) completed in 0.96 seconds
+2026-03-02 02:06:05,025 - __main__ - INFO - Retrieved 500 records (total: 3500)
+2026-03-02 02:06:07,212 - __main__ - INFO - API request (skip=3500) completed in 0.95 seconds
+2026-03-02 02:06:07,213 - __main__ - INFO - Retrieved 500 records (total: 4000)
+2026-03-02 02:06:09,432 - __main__ - INFO - API request (skip=4000) completed in 0.96 seconds
+2026-03-02 02:06:09,433 - __main__ - INFO - Retrieved 500 records (total: 4500)
+2026-03-02 02:06:11,670 - __main__ - INFO - API request (skip=4500) completed in 0.97 seconds
+2026-03-02 02:06:11,671 - __main__ - INFO - Retrieved 500 records (total: 5000)
+2026-03-02 02:06:13,736 - __main__ - INFO - API request (skip=5000) completed in 0.78 seconds
+2026-03-02 02:06:13,737 - __main__ - INFO - Retrieved 197 records (total: 5197)
+2026-03-02 02:06:15,714 - __main__ - INFO - API request (skip=5500) completed in 0.86 seconds
+2026-03-02 02:06:15,714 - __main__ - INFO - No more records to fetch from API
+2026-03-02 02:06:15,728 - __main__ - INFO - Saved 5197 ORIGINAL records to data/LTA_bus_stops_02032026.csv
+2026-03-02 02:06:15,728 - __main__ - INFO - LTA DataMall download completed in 24.82 seconds
+2026-03-02 02:06:15,729 - __main__ - INFO - Downloaded 5,197 bus stops from LTA DataMall
+2026-03-02 02:06:15,730 - __main__ - INFO - STEP 2: Performing comprehensive data comparison...
+2026-03-02 02:06:15,730 - __main__ - INFO - Found previous LTA DataMall file: data/LTA_bus_stops_31122025.csv
+2026-03-02 02:06:15,730 - __main__ - INFO - Performing FIXED comprehensive comparison with previous data from data/LTA_bus_stops_31122025.csv
+2026-03-02 02:06:15,736 - __main__ - INFO - === DEBUGGING CODE FORMATS ===
+2026-03-02 02:06:15,737 - __main__ - INFO - Old file sample codes (raw): [1012, 1013, 1019, 1029, 1039]
+2026-03-02 02:06:15,737 - __main__ - INFO - New data sample codes (raw): ['01012', '01013', '01019', '01029', '01039']
+2026-03-02 02:06:15,747 - __main__ - INFO - Old file sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-03-02 02:06:15,748 - __main__ - INFO - New data sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-03-02 02:06:15,755 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:06:15,755 - __main__ - INFO - COMPREHENSIVE BUS STOP COMPARISON REPORT (FIXED)
+2026-03-02 02:06:15,755 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:06:15,755 - __main__ - INFO - Previous dataset (31122025): 5,194 bus stops
+2026-03-02 02:06:15,755 - __main__ - INFO - Current dataset  (02032026): 5,197 bus stops
+2026-03-02 02:06:15,755 - __main__ - INFO - Net change in quantity: +3
+2026-03-02 02:06:15,755 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-03-02 02:06:15,755 - __main__ - INFO - CODE CHANGES (after normalization):
+2026-03-02 02:06:15,755 - __main__ - INFO -    NEW bus stop codes:     3
+2026-03-02 02:06:15,755 - __main__ - INFO -    REMOVED bus stop codes: 0
+2026-03-02 02:06:15,755 - __main__ - INFO -    UNCHANGED codes:        5,194
+2026-03-02 02:06:15,755 - __main__ - INFO - NAME CHANGES (for same codes):
+2026-03-02 02:06:15,755 - __main__ - INFO -    Bus stops with name changes: 26
+2026-03-02 02:06:15,756 - __main__ - INFO -    Bus stops with same names:   5,168
+2026-03-02 02:06:15,756 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-03-02 02:06:15,756 - __main__ - INFO - TOTAL CHANGES DETECTED: 29
+2026-03-02 02:06:15,756 - __main__ - INFO -    = 3 new + 0 removed + 26 name changes
+2026-03-02 02:06:15,756 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-03-02 02:06:15,757 - __main__ - INFO - Sample new codes: 67759(67759), 74951(74951), 67689(67689)
+2026-03-02 02:06:15,757 - __main__ - INFO - Sample name changes:
+2026-03-02 02:06:15,759 - __main__ - INFO -      45201: 'Opp Police Tactical Trg Camp' -> 'Opp Mandai Hill Camp'
+2026-03-02 02:06:15,759 - __main__ - INFO -      68111: 'Bef Seletar Camp G' -> 'Bef Piccadilly Circus/TPE'
+2026-03-02 02:06:15,759 - __main__ - INFO -      68119: 'Aft Seletar Camp G' -> 'Aft Piccadilly Circus/TPE'
+2026-03-02 02:06:15,759 - __main__ - INFO -    ... and 23 more name changes
+2026-03-02 02:06:15,759 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:06:15,759 - __main__ - INFO - 29 CHANGES DETECTED - Will proceed with SimplyGo scraping
+2026-03-02 02:06:15,759 - __main__ - INFO -    Will scrape SimplyGo for all changed bus stops to get corrected names
+2026-03-02 02:06:15,760 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:06:15,761 - __main__ - INFO - Added 3 new bus stops to processing list
+2026-03-02 02:06:15,764 - __main__ - INFO - Added 26 name-changed bus stops to processing list
+2026-03-02 02:06:15,766 - __main__ - INFO - Total changes to process: 29
+2026-03-02 02:06:15,767 - __main__ - INFO -    - Will scrape SimplyGo for: 29 bus stops
+2026-03-02 02:06:15,767 - __main__ - INFO -    - Removed bus stops (reference only): 0
+2026-03-02 02:06:15,768 - __main__ - INFO - Saved 29 changes to data/LTA_changes_31122025-02032026.csv
+2026-03-02 02:06:15,768 - __main__ - INFO - Comprehensive LTA data comparison (FIXED) completed in 0.04 seconds
+2026-03-02 02:06:15,768 - __main__ - INFO - STEP 3: Determining bus stops for SimplyGo scraping...
+2026-03-02 02:06:15,769 - __main__ - INFO - Bus stops to scrape from SimplyGo: 29
+2026-03-02 02:06:15,769 - __main__ - INFO -    Breakdown:
+2026-03-02 02:06:15,769 - __main__ - INFO -       NEW bus stops: 3
+2026-03-02 02:06:15,769 - __main__ - INFO -       NAME changed: 26
+2026-03-02 02:06:15,770 - __main__ - INFO -       REMOVED (skip): 0
+2026-03-02 02:06:15,770 - __main__ - INFO - ======================================================================
+2026-03-02 02:06:15,770 - __main__ - INFO - CHANGES DETECTED: 29 total changes
+2026-03-02 02:06:15,770 - __main__ - INFO - WILL SCRAPE: 29 bus stops from SimplyGo
+2026-03-02 02:06:15,770 - __main__ - INFO - ======================================================================
+2026-03-02 02:06:15,770 - __main__ - INFO - Sample codes to scrape: 67689, 67759, 74951, 05131, 16091, 16099, 43719, 43721, 45181, 45189, ... and 19 more
+2026-03-02 02:06:15,770 - __main__ - INFO - STEP 4: Scraping SimplyGo for changed bus stops...
+2026-03-02 02:06:15,770 - root - INFO - Setting up WebDriver pool with 4 workers
+2026-03-02 02:06:15,770 - root - INFO - Initializing WebDriver pool with 4 drivers
+2026-03-02 02:06:15,770 - WDM - INFO - ====== WebDriver manager ======
+2026-03-02 02:06:15,930 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:16,016 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:16,100 - WDM - INFO - There is no [linux64] chromedriver "145.0.7632.117" for browser google-chrome "145.0.7632" in cache
+2026-03-02 02:06:16,100 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:16,334 - WDM - INFO - WebDriver version 145.0.7632.117 selected
+2026-03-02 02:06:16,338 - WDM - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/linux64/chromedriver-linux64.zip
+2026-03-02 02:06:16,339 - WDM - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.117/linux64/chromedriver-linux64.zip
+2026-03-02 02:06:16,419 - WDM - INFO - Driver downloading response is 200
+2026-03-02 02:06:16,526 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:16,719 - WDM - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/145.0.7632.117]
+2026-03-02 02:06:17,319 - WDM - INFO - ====== WebDriver manager ======
+2026-03-02 02:06:17,379 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:17,463 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:17,545 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/145.0.7632.117/chromedriver-linux64/chromedriver] found in cache
+2026-03-02 02:06:17,727 - WDM - INFO - ====== WebDriver manager ======
+2026-03-02 02:06:17,786 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:17,869 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:17,950 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/145.0.7632.117/chromedriver-linux64/chromedriver] found in cache
+2026-03-02 02:06:18,134 - WDM - INFO - ====== WebDriver manager ======
+2026-03-02 02:06:18,194 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:18,285 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-03-02 02:06:18,376 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/145.0.7632.117/chromedriver-linux64/chromedriver] found in cache
+2026-03-02 02:06:18,562 - root - INFO - WebDriver pool initialized successfully
+2026-03-02 02:06:58,595 - root - INFO - Checkpoint saved at 20/29 (69.0%)
+2026-03-02 02:07:11,974 - root - INFO - Closing all WebDrivers in pool
+2026-03-02 02:07:12,229 - root - INFO - Scraping completed in 56.46 seconds
+2026-03-02 02:07:12,229 - root - INFO - Success rate: 29/29 (100.0%)
+2026-03-02 02:07:12,231 - root - INFO - Results saved to output/simplygo_bus_stops_20260302_020615.csv
+2026-03-02 02:07:12,231 - __main__ - INFO - SimplyGo scraping completed: 29 results
+2026-03-02 02:07:12,232 - __main__ - INFO - STEP 5: Applying corrections to original LTA data...
+2026-03-02 02:07:12,236 - __main__ - INFO - Valid SimplyGo corrections available: 29
+2026-03-02 02:07:12,261 - __main__ - INFO - Applied 29 corrections from SimplyGo to original LTA data
+2026-03-02 02:07:12,277 - __main__ - INFO - Saved corrected dataset to data/lta_correction_20260302_020550.csv
+2026-03-02 02:07:12,292 - __main__ - INFO - Saved consistent copy to data/lta_correction.csv
+2026-03-02 02:07:12,293 - __main__ - INFO - ENHANCED WORKFLOW COMPLETED
+2026-03-02 02:07:12,293 - __main__ - INFO - Enhanced comprehensive workflow completed in 81.39 seconds
+2026-03-02 02:07:12,293 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:07:12,293 - __main__ - INFO - FIXED WORKFLOW COMPLETED SUCCESSFULLY!
+2026-03-02 02:07:12,293 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:07:12,294 - __main__ - INFO - FINAL STATISTICS:
+2026-03-02 02:07:12,294 - __main__ - INFO -    Total bus stops: 5,197
+2026-03-02 02:07:12,294 - __main__ - INFO -    SimplyGo corrections applied: 29
+2026-03-02 02:07:12,294 - __main__ - INFO -    Correction rate: 0.6%
+2026-03-02 02:07:12,295 - __main__ - INFO - CHANGE BREAKDOWN:
+2026-03-02 02:07:12,295 - __main__ - INFO -    New bus stops: 3
+2026-03-02 02:07:12,295 - __main__ - INFO -    Name changes: 26
+2026-03-02 02:07:12,295 - __main__ - INFO -    Removed stops: 0
+2026-03-02 02:07:12,295 - __main__ - INFO -    Total changes: 29
+2026-03-02 02:07:12,295 - __main__ - INFO - EFFICIENCY METRICS:
+2026-03-02 02:07:12,295 - __main__ - INFO -    Scraping success rate: 100.0%
+2026-03-02 02:07:12,295 - __main__ - INFO -    Processing efficiency: Only processed 29 changes instead of all 5,197 bus stops
+2026-03-02 02:07:12,296 - __main__ - INFO - SAMPLE CORRECTIONS:
+2026-03-02 02:07:12,296 - __main__ - INFO -    05131: 'Opp Chinatown Stn' -> 'Opp Chinatown Stn'
+2026-03-02 02:07:12,296 - __main__ - INFO -    16091: 'NUS Sports Centre' -> 'NUS Sports Centre'
+2026-03-02 02:07:12,296 - __main__ - INFO -    16099: 'Opp NUS Sports Centre' -> 'Opp NUS Sports Centre'
+2026-03-02 02:07:12,297 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:07:12,297 - __main__ - INFO - All data saved and ready for use!
+2026-03-02 02:07:12,297 - __main__ - INFO - Main output: data/lta_correction.csv
+2026-03-02 02:07:12,297 - __main__ - INFO - ==========================================================================================
+2026-03-02 02:07:12,297 - __main__ - INFO - Script execution finished
