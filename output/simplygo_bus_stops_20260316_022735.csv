@@ -1,0 +1,35 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+40469,Tengah Pk Ave,Blk 319A,"831G, 831G",,True,2026-03-16T02:27:52.084724
+40479,Tengah Dr,Blk 307B,"97, 97, 97e, 97e",,True,2026-03-16T02:27:52.325369
+40461,Tengah Pk Ave,Blk 308A,"831W, 831W",,True,2026-03-16T02:27:52.439355
+40471,Tengah Dr,Blk 126A,"97, 97, 97e, 97e",,True,2026-03-16T02:27:52.313729
+67689,Sengkang Sq,Sengkang Stn Exit C,"372, 372, 374, 374",,True,2026-03-16T02:28:00.354691
+74951,Tampines St 96,Blk 962A,"18M, 18M",,True,2026-03-16T02:28:00.656027
+67759,Compassvale Rd,Compassvale Int,"80, 80, 86, 86, 87, 87, 372, 372, 374, 374",,True,2026-03-16T02:28:00.900886
+70282,,,,,False,2026-03-16T02:28:01.642084
+05131,Upp Cross St,Opp Chinatown Stn,"51, 51, 63, 63, 124, 124, 174, 174, 174e, 174e, 186, 186, 851, 851, 851e, 851e, 961, 961, 961M, 961M, 970, 970",,True,2026-03-16T02:28:07.662097
+16091,AYE,NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-16T02:28:08.117024
+43719,Gombak Dr,MINDEF Pick-Up/Drop-Off,"177, 177",,True,2026-03-16T02:28:08.542121
+16099,AYE,Opp NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-16T02:28:08.568160
+43721,Gombak Dr,MINDEF Pass Office,"177, 177",,True,2026-03-16T02:28:13.897478
+45181,Mandai Rd,Bef Mandai Quarry Rd,"927, 927",,True,2026-03-16T02:28:14.323930
+45191,Mandai Rd,Opp Home Team Tactical Ctr,"927, 927",,True,2026-03-16T02:28:15.951224
+45189,Mandai Rd,Aft Mandai Quarry Rd,"927, 927",,True,2026-03-16T02:28:15.982042
+45199,Mandai Rd,Home Team Tactical Ctr,"927, 927",,True,2026-03-16T02:28:20.055494
+45201,Mandai Rd,Opp Mandai Hill Camp,"927, 927",,True,2026-03-16T02:28:20.540365
+47749,W'lands Dr 17,W'lands Hosp,"900, 900, 967, 967",,True,2026-03-16T02:28:21.702500
+45209,Mandai Rd,Aft Mandai Hill Camp,"927, 927",,True,2026-03-16T02:28:23.363673
+48091,Mandai Rd,Aft Bath Rd,"138, 138",,True,2026-03-16T02:28:26.243691
+48099,Mandai Rd,Aft Mandai Rd Track 7,"138, 138",,True,2026-03-16T02:28:26.760472
+49101,Kranji Rd,Aft Kranji Cl,"925, 925, 925M, 925M",,True,2026-03-16T02:28:27.877568
+52241,Toa Payoh Rise,Bef Caldecott Stn/SAVH,"141, 141",,True,2026-03-16T02:28:30.592655
+58069,Sembawang Rd,Blk 101A,"169, 169, 882, 882",,True,2026-03-16T02:28:32.409331
+65091,Punggol Rd,Blk 301A,"84G, 84G, 84W, 84W, 683, 683",,True,2026-03-16T02:28:32.966367
+67741,Fernvale Rd,Thanggam Stn Exit B,"374, 374, 679, 679",,True,2026-03-16T02:28:34.166009
+68061,Piccadilly,Aft Mornington Cres,"103, 103, 117, 117, 117M, 117M",,True,2026-03-16T02:28:36.837934
+68069,Piccadilly,Aft Battersea Rd,"103, 103, 117, 117, 117M, 117M",,True,2026-03-16T02:28:38.660505
+68111,Jln Kayu,Bef Piccadilly Circus/TPE,"39, 39, 86, 86, 102, 102, 103, 103, 117, 117, 117M, 117M, 168, 168, 858, 858",,True,2026-03-16T02:28:39.191622
+68119,Jln Kayu,Aft Piccadilly Circus/TPE,"39, 39, 86, 86, 102, 102, 103, 103, 117, 117, 117M, 117M, 168, 168, 858, 858",,True,2026-03-16T02:28:41.170448
+73049,Airport Rd,Air Force Trg Cmd,"90, 90, 94, 94",,True,2026-03-16T02:28:43.969637
+99019,Loyang Ave,Aft Hendon Camp,"2, 2, 9, 9, 19, 19, 29, 29, 59, 59, 89, 89, 109, 109",,True,2026-03-16T02:28:45.484501
+99011,Loyang Ave,Bef Hendon Camp,"2, 2, 9, 9, 19, 19, 29, 29, 59, 59, 89, 89, 109, 109",,True,2026-03-16T02:28:46.084996
