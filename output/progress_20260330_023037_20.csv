@@ -1,0 +1,21 @@
+code,road_name,bus_description,bus_services,mrt_lrt_station,success,timestamp
+40471,Tengah Dr,Blk 126A,"97, 97, 97e, 97e",,True,2026-03-30T02:30:52.456630
+40461,Tengah Pk Ave,Blk 308A,"831W, 831W",,True,2026-03-30T02:30:51.350778
+40469,Tengah Pk Ave,Blk 319A,"831G, 831G",,True,2026-03-30T02:30:53.084811
+40479,Tengah Dr,Blk 307B,"97, 97, 97e, 97e",,True,2026-03-30T02:30:52.899564
+67689,Sengkang Sq,Sengkang Stn Exit C,"372, 372, 374, 374",,True,2026-03-30T02:30:57.654403
+67759,Compassvale Rd,Compassvale Int,"80, 80, 86, 86, 87, 87, 372, 372, 374, 374",,True,2026-03-30T02:30:58.653051
+74951,Tampines St 96,Blk 962A,"18M, 18M",,True,2026-03-30T02:30:59.789709
+70282,,,,,False,2026-03-30T02:31:00.672492
+05131,Upp Cross St,Opp Chinatown Stn,"51, 51, 63, 63, 124, 124, 174, 174, 174e, 174e, 186, 186, 851, 851, 851e, 851e, 961, 961, 961M, 961M, 970, 970",,True,2026-03-30T02:31:03.519456
+16091,AYE,NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-30T02:31:04.926447
+16099,AYE,Opp NUS Sports Centre,"97, 97, 197, 197, 198, 198, 963, 963, 963e, 963e",,True,2026-03-30T02:31:06.040628
+43719,Gombak Dr,MINDEF Pick-Up/Drop-Off,"177, 177",,True,2026-03-30T02:31:06.953607
+43721,Gombak Dr,MINDEF Pass Office,"177, 177",,True,2026-03-30T02:31:09.851275
+45181,Mandai Rd,Bef Mandai Quarry Rd,"927, 927",,True,2026-03-30T02:31:10.655015
+45189,Mandai Rd,Aft Mandai Quarry Rd,"927, 927",,True,2026-03-30T02:31:12.186124
+45191,Mandai Rd,Opp Home Team Tactical Ctr,"927, 927",,True,2026-03-30T02:31:13.254755
+45199,Mandai Rd,Home Team Tactical Ctr,"927, 927",,True,2026-03-30T02:31:16.045258
+45201,Mandai Rd,Opp Mandai Hill Camp,"927, 927",,True,2026-03-30T02:31:17.685138
+45209,Mandai Rd,Aft Mandai Hill Camp,"927, 927",,True,2026-03-30T02:31:18.428012
+47749,W'lands Dr 17,W'lands Hosp,"900, 900, 967, 967",,True,2026-03-30T02:31:19.568223
