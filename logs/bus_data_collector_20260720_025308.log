@@ -1,0 +1,1740 @@
+2026-07-20 02:53:08,078 - __main__ - INFO - Python version: 3.10.20 (main, Jun 16 2026, 21:01:32) [GCC 13.3.0]
+2026-07-20 02:53:08,078 - __main__ - INFO - Starting FIXED comprehensive workflow with 4 workers
+2026-07-20 02:53:08,078 - __main__ - INFO - This version uses ORIGINAL LTA data with proper code normalization
+2026-07-20 02:53:08,078 - __main__ - INFO - STARTING ENHANCED BUS STOP DATA COLLECTION WORKFLOW
+2026-07-20 02:53:08,078 - __main__ - INFO - ================================================================================
+2026-07-20 02:53:08,078 - __main__ - INFO - STEP 1: Downloading original LTA DataMall data...
+2026-07-20 02:53:08,078 - __main__ - INFO - Starting download from LTA DataMall...
+2026-07-20 02:53:09,159 - __main__ - INFO - API request (skip=0) completed in 1.08 seconds
+2026-07-20 02:53:09,160 - __main__ - INFO - Retrieved 500 records (total: 500)
+2026-07-20 02:53:11,357 - __main__ - INFO - API request (skip=500) completed in 1.05 seconds
+2026-07-20 02:53:11,358 - __main__ - INFO - Retrieved 500 records (total: 1000)
+2026-07-20 02:53:13,537 - __main__ - INFO - API request (skip=1000) completed in 1.02 seconds
+2026-07-20 02:53:13,538 - __main__ - INFO - Retrieved 500 records (total: 1500)
+2026-07-20 02:53:15,726 - __main__ - INFO - API request (skip=1500) completed in 1.02 seconds
+2026-07-20 02:53:15,727 - __main__ - INFO - Retrieved 500 records (total: 2000)
+2026-07-20 02:53:17,917 - __main__ - INFO - API request (skip=2000) completed in 1.02 seconds
+2026-07-20 02:53:17,918 - __main__ - INFO - Retrieved 500 records (total: 2500)
+2026-07-20 02:53:20,143 - __main__ - INFO - API request (skip=2500) completed in 1.04 seconds
+2026-07-20 02:53:20,144 - __main__ - INFO - Retrieved 500 records (total: 3000)
+2026-07-20 02:53:22,381 - __main__ - INFO - API request (skip=3000) completed in 1.05 seconds
+2026-07-20 02:53:22,382 - __main__ - INFO - Retrieved 500 records (total: 3500)
+2026-07-20 02:53:24,595 - __main__ - INFO - API request (skip=3500) completed in 1.01 seconds
+2026-07-20 02:53:24,596 - __main__ - INFO - Retrieved 500 records (total: 4000)
+2026-07-20 02:53:26,837 - __main__ - INFO - API request (skip=4000) completed in 1.03 seconds
+2026-07-20 02:53:26,838 - __main__ - INFO - Retrieved 500 records (total: 4500)
+2026-07-20 02:53:29,067 - __main__ - INFO - API request (skip=4500) completed in 1.02 seconds
+2026-07-20 02:53:29,069 - __main__ - INFO - Retrieved 500 records (total: 5000)
+2026-07-20 02:53:31,110 - __main__ - INFO - API request (skip=5000) completed in 0.82 seconds
+2026-07-20 02:53:31,111 - __main__ - INFO - Retrieved 208 records (total: 5208)
+2026-07-20 02:53:32,957 - __main__ - INFO - API request (skip=5500) completed in 0.75 seconds
+2026-07-20 02:53:32,958 - __main__ - INFO - No more records to fetch from API
+2026-07-20 02:53:32,972 - __main__ - INFO - Saved 5208 ORIGINAL records to data/LTA_bus_stops_20072026.csv
+2026-07-20 02:53:32,972 - __main__ - INFO - LTA DataMall download completed in 24.89 seconds
+2026-07-20 02:53:32,973 - __main__ - INFO - Downloaded 5,208 bus stops from LTA DataMall
+2026-07-20 02:53:32,973 - __main__ - INFO - STEP 2: Performing comprehensive data comparison...
+2026-07-20 02:53:32,974 - __main__ - INFO - Found previous LTA DataMall file: data/LTA_bus_stops_31122025.csv
+2026-07-20 02:53:32,974 - __main__ - INFO - Performing FIXED comprehensive comparison with previous data from data/LTA_bus_stops_31122025.csv
+2026-07-20 02:53:32,981 - __main__ - INFO - === DEBUGGING CODE FORMATS ===
+2026-07-20 02:53:32,981 - __main__ - INFO - Old file sample codes (raw): [1012, 1013, 1019, 1029, 1039]
+2026-07-20 02:53:32,981 - __main__ - INFO - New data sample codes (raw): ['01012', '01013', '01019', '01029', '01039']
+2026-07-20 02:53:32,992 - __main__ - INFO - Old file sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-07-20 02:53:32,992 - __main__ - INFO - New data sample codes (normalized): ['01012', '01013', '01019', '01029', '01039']
+2026-07-20 02:53:33,000 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:53:33,001 - __main__ - INFO - COMPREHENSIVE BUS STOP COMPARISON REPORT (FIXED)
+2026-07-20 02:53:33,001 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:53:33,001 - __main__ - INFO - Previous dataset (31122025): 5,194 bus stops
+2026-07-20 02:53:33,001 - __main__ - INFO - Current dataset  (20072026): 5,208 bus stops
+2026-07-20 02:53:33,001 - __main__ - INFO - Net change in quantity: +14
+2026-07-20 02:53:33,001 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-07-20 02:53:33,001 - __main__ - INFO - CODE CHANGES (after normalization):
+2026-07-20 02:53:33,001 - __main__ - INFO -    NEW bus stop codes:     17
+2026-07-20 02:53:33,001 - __main__ - INFO -    REMOVED bus stop codes: 3
+2026-07-20 02:53:33,001 - __main__ - INFO -    UNCHANGED codes:        5,191
+2026-07-20 02:53:33,001 - __main__ - INFO - NAME CHANGES (for same codes):
+2026-07-20 02:53:33,001 - __main__ - INFO -    Bus stops with name changes: 59
+2026-07-20 02:53:33,001 - __main__ - INFO -    Bus stops with same names:   5,132
+2026-07-20 02:53:33,001 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-07-20 02:53:33,001 - __main__ - INFO - TOTAL CHANGES DETECTED: 79
+2026-07-20 02:53:33,001 - __main__ - INFO -    = 17 new + 3 removed + 59 name changes
+2026-07-20 02:53:33,001 - __main__ - INFO - ------------------------------------------------------------------------------------------
+2026-07-20 02:53:33,004 - __main__ - INFO - Sample new codes: 67759(67759), 67708(67708), 27389(27389)
+2026-07-20 02:53:33,004 - __main__ - INFO -    ... and 14 more new codes
+2026-07-20 02:53:33,006 - __main__ - INFO - Sample removed codes: 44821(44821), 58309(58309), 58301(58301)
+2026-07-20 02:53:33,006 - __main__ - INFO - Sample name changes:
+2026-07-20 02:53:33,008 - __main__ - INFO -      78119: 'Opp Blk 479' -> 'Opp Blk 476'
+2026-07-20 02:53:33,008 - __main__ - INFO -      59809: 'Opp Blk 382C' -> 'Blk 483B'
+2026-07-20 02:53:33,009 - __main__ - INFO -      46059: 'GLOBALFOUNDRIES/Aft BKE' -> 'GlobalFoundries/Aft BKE'
+2026-07-20 02:53:33,009 - __main__ - INFO -    ... and 56 more name changes
+2026-07-20 02:53:33,009 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:53:33,009 - __main__ - INFO - 79 CHANGES DETECTED - Will proceed with SimplyGo scraping
+2026-07-20 02:53:33,009 - __main__ - INFO -    Will scrape SimplyGo for all changed bus stops to get corrected names
+2026-07-20 02:53:33,009 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:53:33,011 - __main__ - INFO - Added 17 new bus stops to processing list
+2026-07-20 02:53:33,012 - __main__ - INFO - Added 3 removed bus stops to processing list (for reference)
+2026-07-20 02:53:33,015 - __main__ - INFO - Added 59 name-changed bus stops to processing list
+2026-07-20 02:53:33,018 - __main__ - INFO - Total changes to process: 79
+2026-07-20 02:53:33,019 - __main__ - INFO -    - Will scrape SimplyGo for: 76 bus stops
+2026-07-20 02:53:33,019 - __main__ - INFO -    - Removed bus stops (reference only): 3
+2026-07-20 02:53:33,020 - __main__ - INFO - Saved 79 changes to data/LTA_changes_31122025-20072026.csv
+2026-07-20 02:53:33,020 - __main__ - INFO - Comprehensive LTA data comparison (FIXED) completed in 0.05 seconds
+2026-07-20 02:53:33,021 - __main__ - INFO - STEP 3: Determining bus stops for SimplyGo scraping...
+2026-07-20 02:53:33,021 - __main__ - INFO - Bus stops to scrape from SimplyGo: 76
+2026-07-20 02:53:33,022 - __main__ - INFO -    Breakdown:
+2026-07-20 02:53:33,022 - __main__ - INFO -       NEW bus stops: 17
+2026-07-20 02:53:33,022 - __main__ - INFO -       NAME changed: 59
+2026-07-20 02:53:33,022 - __main__ - INFO -       REMOVED (skip): 3
+2026-07-20 02:53:33,022 - __main__ - INFO - ======================================================================
+2026-07-20 02:53:33,022 - __main__ - INFO - CHANGES DETECTED: 79 total changes
+2026-07-20 02:53:33,022 - __main__ - INFO - WILL SCRAPE: 76 bus stops from SimplyGo
+2026-07-20 02:53:33,022 - __main__ - INFO - ======================================================================
+2026-07-20 02:53:33,023 - __main__ - INFO - Sample codes to scrape: 07522, 27381, 27389, 27601, 27609, 27611, 27619, 40461, 40469, 40471, ... and 66 more
+2026-07-20 02:53:33,023 - __main__ - INFO - STEP 4: Scraping SimplyGo for changed bus stops...
+2026-07-20 02:53:33,023 - root - INFO - Setting up WebDriver pool with 4 workers
+2026-07-20 02:53:33,023 - root - INFO - Initializing WebDriver pool with 4 drivers
+2026-07-20 02:53:33,023 - WDM - INFO - ====== WebDriver manager ======
+2026-07-20 02:53:35,073 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-07-20 02:53:35,147 - WDM - INFO - There is no [linux64] chromedriver "150.0.7871.124" for browser google-chrome "150.0.7871" in cache
+2026-07-20 02:53:35,182 - WDM - INFO - There is no [linux64] chromedriver "150.0.7871.124" for browser google-chrome "150.0.7871" in cache
+2026-07-20 02:53:35,183 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-07-20 02:53:35,399 - WDM - INFO - WebDriver version 150.0.7871.124 selected
+2026-07-20 02:53:35,406 - WDM - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/150.0.7871.124/linux64/chromedriver-linux64.zip
+2026-07-20 02:53:35,407 - WDM - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/150.0.7871.124/linux64/chromedriver-linux64.zip
+2026-07-20 02:53:35,535 - WDM - INFO - Driver downloading response is 200
+2026-07-20 02:53:36,037 - WDM - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/150.0.7871.124]
+2026-07-20 02:53:41,522 - WDM - INFO - ====== WebDriver manager ======
+2026-07-20 02:53:41,558 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/150.0.7871.124/chromedriver-linux64/chromedriver] found in cache by browser version
+2026-07-20 02:53:41,840 - WDM - INFO - ====== WebDriver manager ======
+2026-07-20 02:53:41,890 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/150.0.7871.124/chromedriver-linux64/chromedriver] found in cache by browser version
+2026-07-20 02:53:42,171 - WDM - INFO - ====== WebDriver manager ======
+2026-07-20 02:53:42,215 - WDM - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/150.0.7871.124/chromedriver-linux64/chromedriver] found in cache by browser version
+2026-07-20 02:53:42,499 - root - INFO - WebDriver pool initialized successfully
+2026-07-20 02:54:00,163 - root - ERROR - Form interaction failed for 27381: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:54:00,163 - root - ERROR - Form interaction failed for 27601: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:54:00,178 - root - ERROR - Form interaction failed for 07522: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:54:00,184 - root - ERROR - Form interaction failed for 27389: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:54:12,860 - root - ERROR - Form interaction failed for 27611: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:54:12,860 - root - ERROR - Form interaction failed for 27619: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:54:12,886 - root - ERROR - Form interaction failed for 40461: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:54:12,969 - root - ERROR - Form interaction failed for 27609: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:54:25,304 - root - ERROR - Form interaction failed for 40479: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:54:25,370 - root - ERROR - Form interaction failed for 40471: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:54:25,372 - root - ERROR - Form interaction failed for 40469: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:54:25,430 - root - ERROR - Form interaction failed for 65791: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:54:37,621 - root - ERROR - Form interaction failed for 67689: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:54:37,798 - root - ERROR - Form interaction failed for 67759: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:54:37,830 - root - ERROR - Form interaction failed for 70372: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:54:37,895 - root - ERROR - Form interaction failed for 67708: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:54:49,806 - root - ERROR - Form interaction failed for 74951: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:54:50,175 - root - ERROR - Form interaction failed for 01511: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:54:50,210 - root - ERROR - Form interaction failed for 03218: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:54:50,290 - root - ERROR - Form interaction failed for 04143: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:54:50,297 - root - INFO - Checkpoint saved at 20/76 (26.3%)
+2026-07-20 02:55:02,873 - root - ERROR - Form interaction failed for 05131: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:55:03,561 - root - ERROR - Form interaction failed for 05651: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:55:03,653 - root - ERROR - Form interaction failed for 06189: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:55:03,693 - root - ERROR - Form interaction failed for 07111: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:55:15,222 - root - ERROR - Form interaction failed for 12201: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:55:15,918 - root - ERROR - Form interaction failed for 12209: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:55:16,155 - root - ERROR - Form interaction failed for 14061: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:55:16,155 - root - ERROR - Form interaction failed for 14069: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:55:27,391 - root - ERROR - Form interaction failed for 14081: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:55:28,291 - root - ERROR - Form interaction failed for 14089: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:55:28,462 - root - ERROR - Form interaction failed for 20139: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:55:28,520 - root - ERROR - Form interaction failed for 43409: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:55:39,524 - root - ERROR - Form interaction failed for 43719: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:55:40,480 - root - ERROR - Form interaction failed for 43721: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:55:40,662 - root - ERROR - Form interaction failed for 44069: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:55:40,755 - root - ERROR - Form interaction failed for 45181: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:55:51,651 - root - ERROR - Form interaction failed for 45189: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:55:52,629 - root - ERROR - Form interaction failed for 45191: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:55:52,827 - root - ERROR - Form interaction failed for 45199: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:55:53,012 - root - ERROR - Form interaction failed for 45201: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:55:53,019 - root - INFO - Checkpoint saved at 40/76 (52.6%)
+2026-07-20 02:56:03,816 - root - ERROR - Form interaction failed for 45209: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:56:04,782 - root - ERROR - Form interaction failed for 46041: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:56:05,012 - root - ERROR - Form interaction failed for 46049: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:56:05,196 - root - ERROR - Form interaction failed for 46059: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:56:15,955 - root - ERROR - Form interaction failed for 47549: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:56:16,976 - root - ERROR - Form interaction failed for 47749: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:56:17,162 - root - ERROR - Form interaction failed for 48091: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:56:17,393 - root - ERROR - Form interaction failed for 48099: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:56:28,069 - root - ERROR - Form interaction failed for 49101: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:56:29,150 - root - ERROR - Form interaction failed for 51109: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:56:29,338 - root - ERROR - Form interaction failed for 52069: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:56:29,572 - root - ERROR - Form interaction failed for 52241: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:56:40,214 - root - ERROR - Form interaction failed for 55051: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:56:41,392 - root - ERROR - Form interaction failed for 55059: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:56:41,538 - root - ERROR - Form interaction failed for 58069: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:56:41,780 - root - ERROR - Form interaction failed for 59809: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:56:52,345 - root - ERROR - Form interaction failed for 65091: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:56:53,570 - root - ERROR - Form interaction failed for 65271: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:56:53,743 - root - ERROR - Form interaction failed for 67741: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:56:53,974 - root - ERROR - Form interaction failed for 68061: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:56:53,981 - root - INFO - Checkpoint saved at 60/76 (78.9%)
+2026-07-20 02:57:04,494 - root - ERROR - Form interaction failed for 68069: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:57:05,726 - root - ERROR - Form interaction failed for 68111: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:57:05,905 - root - ERROR - Form interaction failed for 68119: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:57:06,182 - root - ERROR - Form interaction failed for 73049: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:57:16,682 - root - ERROR - Form interaction failed for 77031: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:57:17,955 - root - ERROR - Form interaction failed for 77039: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:57:18,098 - root - ERROR - Form interaction failed for 77321: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:57:18,402 - root - ERROR - Form interaction failed for 77329: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:57:28,849 - root - ERROR - Form interaction failed for 78111: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:57:30,082 - root - ERROR - Form interaction failed for 78119: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:57:30,282 - root - ERROR - Form interaction failed for 84661: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:57:30,590 - root - ERROR - Form interaction failed for 84681: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:57:40,966 - root - ERROR - Form interaction failed for 85091: Message: 
+Stacktrace:
+#0 0x55a17bb7944a <unknown>
+#1 0x55a17b5518c9 <unknown>
+#2 0x55a17b5a6f32 <unknown>
+#3 0x55a17b5a7181 <unknown>
+#4 0x55a17b5f2374 <unknown>
+#5 0x55a17b5ef55d <unknown>
+#6 0x55a17b59a3ff <unknown>
+#7 0x55a17b59b261 <unknown>
+#8 0x55a17bb3ecc7 <unknown>
+#9 0x55a17bb3d4a8 <unknown>
+#10 0x55a17bb28196 <unknown>
+#11 0x55a17bb3e06a <unknown>
+#12 0x55a17bb10020 <unknown>
+#13 0x55a17bb64b98 <unknown>
+#14 0x55a17bb64d35 <unknown>
+#15 0x55a17bb77ffe <unknown>
+#16 0x7f9b0669caa4 <unknown>
+#17 0x7f9b06729c6c <unknown>
+
+2026-07-20 02:57:42,216 - root - ERROR - Form interaction failed for 85099: Message: 
+Stacktrace:
+#0 0x55ba35a6f44a <unknown>
+#1 0x55ba354478c9 <unknown>
+#2 0x55ba3549cf32 <unknown>
+#3 0x55ba3549d181 <unknown>
+#4 0x55ba354e8374 <unknown>
+#5 0x55ba354e555d <unknown>
+#6 0x55ba354903ff <unknown>
+#7 0x55ba35491261 <unknown>
+#8 0x55ba35a34cc7 <unknown>
+#9 0x55ba35a334a8 <unknown>
+#10 0x55ba35a1e196 <unknown>
+#11 0x55ba35a3406a <unknown>
+#12 0x55ba35a06020 <unknown>
+#13 0x55ba35a5ab98 <unknown>
+#14 0x55ba35a5ad35 <unknown>
+#15 0x55ba35a6dffe <unknown>
+#16 0x7f8c9de9caa4 <unknown>
+#17 0x7f8c9df29c6c <unknown>
+
+2026-07-20 02:57:42,441 - root - ERROR - Form interaction failed for 99011: Message: 
+Stacktrace:
+#0 0x564de64d844a <unknown>
+#1 0x564de5eb08c9 <unknown>
+#2 0x564de5f05f32 <unknown>
+#3 0x564de5f06181 <unknown>
+#4 0x564de5f51374 <unknown>
+#5 0x564de5f4e55d <unknown>
+#6 0x564de5ef93ff <unknown>
+#7 0x564de5efa261 <unknown>
+#8 0x564de649dcc7 <unknown>
+#9 0x564de649c4a8 <unknown>
+#10 0x564de6487196 <unknown>
+#11 0x564de649d06a <unknown>
+#12 0x564de646f020 <unknown>
+#13 0x564de64c3b98 <unknown>
+#14 0x564de64c3d35 <unknown>
+#15 0x564de64d6ffe <unknown>
+#16 0x7f741869caa4 <unknown>
+#17 0x7f7418729c6c <unknown>
+
+2026-07-20 02:57:42,735 - root - ERROR - Form interaction failed for 99019: Message: 
+Stacktrace:
+#0 0x56042631644a <unknown>
+#1 0x560425cee8c9 <unknown>
+#2 0x560425d43f32 <unknown>
+#3 0x560425d44181 <unknown>
+#4 0x560425d8f374 <unknown>
+#5 0x560425d8c55d <unknown>
+#6 0x560425d373ff <unknown>
+#7 0x560425d38261 <unknown>
+#8 0x5604262dbcc7 <unknown>
+#9 0x5604262da4a8 <unknown>
+#10 0x5604262c5196 <unknown>
+#11 0x5604262db06a <unknown>
+#12 0x5604262ad020 <unknown>
+#13 0x560426301b98 <unknown>
+#14 0x560426301d35 <unknown>
+#15 0x560426314ffe <unknown>
+#16 0x7ff36549caa4 <unknown>
+#17 0x7ff365529c6c <unknown>
+
+2026-07-20 02:57:42,739 - root - INFO - Closing all WebDrivers in pool
+2026-07-20 02:57:43,096 - root - INFO - Scraping completed in 250.07 seconds
+2026-07-20 02:57:43,096 - root - INFO - Success rate: 0/76 (0.0%)
+2026-07-20 02:57:43,098 - root - INFO - Results saved to output/simplygo_bus_stops_20260720_025333.csv
+2026-07-20 02:57:43,099 - __main__ - INFO - SimplyGo scraping completed: 76 results
+2026-07-20 02:57:43,099 - __main__ - INFO - STEP 5: Applying corrections to original LTA data...
+2026-07-20 02:57:43,102 - __main__ - ERROR - Error applying corrections to original LTA data: 'simplygo_name'
+2026-07-20 02:57:43,119 - __main__ - WARNING - Using original LTA data due to correction error, saved to data/lta_correction_20260720_025308.csv
+2026-07-20 02:57:43,119 - __main__ - INFO - ENHANCED WORKFLOW COMPLETED
+2026-07-20 02:57:43,119 - __main__ - INFO - Enhanced comprehensive workflow completed in 275.04 seconds
+2026-07-20 02:57:43,119 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:57:43,119 - __main__ - INFO - FIXED WORKFLOW COMPLETED SUCCESSFULLY!
+2026-07-20 02:57:43,119 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:57:43,120 - __main__ - INFO - FINAL STATISTICS:
+2026-07-20 02:57:43,120 - __main__ - INFO -    Total bus stops: 5,208
+2026-07-20 02:57:43,120 - __main__ - INFO -    SimplyGo corrections applied: 0
+2026-07-20 02:57:43,120 - __main__ - INFO -    Correction rate: 0.0%
+2026-07-20 02:57:43,121 - __main__ - INFO - CHANGE BREAKDOWN:
+2026-07-20 02:57:43,121 - __main__ - INFO -    New bus stops: 17
+2026-07-20 02:57:43,121 - __main__ - INFO -    Name changes: 59
+2026-07-20 02:57:43,122 - __main__ - INFO -    Removed stops: 3
+2026-07-20 02:57:43,122 - __main__ - INFO -    Total changes: 79
+2026-07-20 02:57:43,122 - __main__ - INFO - EFFICIENCY METRICS:
+2026-07-20 02:57:43,122 - __main__ - INFO -    Scraping success rate: 0.0%
+2026-07-20 02:57:43,122 - __main__ - INFO -    Processing efficiency: Only processed 79 changes instead of all 5,208 bus stops
+2026-07-20 02:57:43,122 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:57:43,122 - __main__ - INFO - All data saved and ready for use!
+2026-07-20 02:57:43,122 - __main__ - INFO - Main output: data/lta_correction.csv
+2026-07-20 02:57:43,122 - __main__ - INFO - ==========================================================================================
+2026-07-20 02:57:43,123 - __main__ - INFO - Script execution finished
